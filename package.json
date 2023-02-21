@@ -1,0 +1,23 @@
+{
+  "name": "top-todo-list",
+  "version": "1.0.0",
+  "description": "TOP-todo-list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyler7r/TOP-todo-list.git"
+  },
+  "author": "tyler7r",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tyler7r/TOP-todo-list/issues"
+  },
+  "homepage": "https://github.com/tyler7r/TOP-todo-list#readme",
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
