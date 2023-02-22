@@ -2,6 +2,7 @@ const projectForm = document.querySelector('.projectForm');
 let addedProjects = [];
 
 import addProjectToContent, { addProjectToSidebar } from './project-to-DOM.js';
+import addEllipsisFunctionality from './edit-project.js';
 
 
 export default function addProjectBtn() {
@@ -27,6 +28,7 @@ submitProjectBtn.addEventListener('click', (e) => {
     console.log(addedProjects);
     addProjectToContent(addedProjects);
     addProjectToSidebar(addedProjects);
+    addEllipsisFunctionality();
 })
 
 function newProjectInfo() {

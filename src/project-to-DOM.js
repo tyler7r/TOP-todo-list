@@ -24,6 +24,7 @@ export default function addProjectToContent(array) {
         }
         let ellipsis = document.createElement('img');
         ellipsis.classList.add('ellipsis');
+        ellipsis.setAttribute('id', `e${[i+1]}`);
         ellipsis.src = 'ellipsis.svg';
         projectSelect.appendChild(ellipsis);
     }
@@ -49,6 +50,7 @@ function addProjectToSidebar(array) {
         }
         let ellipsis = document.createElement('img');
         ellipsis.classList.add('sidebarEllipsis');
+        ellipsis.setAttribute('id', `sidebarE${[i+1]}`);
         ellipsis.src = 'ellipsis.svg';
         projectTabSelect.appendChild(ellipsis);
     }
