@@ -1,1 +1,3 @@
-console.log('this works');
+import newProjectBtn from './new-project.js';
+
+newProjectBtn();
