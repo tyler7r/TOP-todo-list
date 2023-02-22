@@ -1,7 +1,8 @@
+const projectForm = document.querySelector('.projectForm')
+
 export default function addProjectBtn() {
     let addProjectBtn = document.querySelector('.addProject');
     addProjectBtn.addEventListener('click', () => {
-        const projectForm = document.querySelector('.projectForm')
         projectForm.classList.remove('hidden');
         submitNewProject();
     })
@@ -19,6 +20,7 @@ function submitNewProject() {
     submitProjectBtn.addEventListener('click', (e) => {
         e.preventDefault();
         newProjectInfo();
+        projectForm.classList.add('hidden');
     })
 }
 
