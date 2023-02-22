@@ -1,6 +1,8 @@
 const projectForm = document.querySelector('.projectForm');
 let addedProjects = [];
 
+import addProjectsToDOM from './updateContent.js';
+
 export default function addProjectBtn() {
     let addProjectBtn = document.querySelector('.addProject');
     addProjectBtn.addEventListener('click', () => {
@@ -20,10 +22,10 @@ submitProjectBtn.addEventListener('click', (e) => {
     e.preventDefault();
     newProjectInfo();
     projectForm.classList.add('hidden');
-    let allInputs = document.querySelectorAll('input');
-    allInputs.forEach((input) => input.value = '');
-    let priorityInput = document.querySelector('#priority');
-    priorityInput.value = 'low';
+    clearFormEntry();
+    console.log(addedProjects);
+    addProjectsToDOM(addedProjects);
+    // createProjectCard(addedProjects);
 })
 
 function newProjectInfo() {
@@ -33,14 +35,13 @@ function newProjectInfo() {
     const priority = document.querySelector('#priority').value;
     let newProject = new Project(title, description, dueDate, priority);
     addedProjects.push(newProject);
-    // erasePreviousForm(title.value, description, dueDate, priority);
-}  
+}
 
-// function erasePreviousForm (title, description, dueDate, priority) {
-//     title = '';
-//     description = '';
-//     dueDate = '';
-//     priority = '';
-// }
+function clearFormEntry() {
+    let allInputs = document.querySelectorAll('input');
+    allInputs.forEach((input) => input.value = '');
+    let priorityInput = document.querySelector('#priority');
+    priorityInput.value = 'low';
+}
 
 export { addedProjects };
