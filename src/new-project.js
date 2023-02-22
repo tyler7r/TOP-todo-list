@@ -1,7 +1,7 @@
 const projectForm = document.querySelector('.projectForm');
 let addedProjects = [];
 
-import addProjectToContent, { addProjectToSidebar } from './updateContent.js';
+import addProjectToContent, { addProjectToSidebar } from './project-to-DOM.js';
 
 export default function addProjectBtn() {
     let addProjectBtn = document.querySelector('.addProject');
