@@ -1,7 +1,7 @@
 const projectForm = document.querySelector('.projectForm');
 let addedProjects = [];
 
-import addProjectsToDOM from './updateContent.js';
+import addProjectToContent, { addProjectToSidebar } from './updateContent.js';
 
 export default function addProjectBtn() {
     let addProjectBtn = document.querySelector('.addProject');
@@ -24,8 +24,8 @@ submitProjectBtn.addEventListener('click', (e) => {
     projectForm.classList.add('hidden');
     clearFormEntry();
     console.log(addedProjects);
-    addProjectsToDOM(addedProjects);
-    // createProjectCard(addedProjects);
+    addProjectToContent(addedProjects);
+    addProjectToSidebar(addedProjects);
 })
 
 function newProjectInfo() {
