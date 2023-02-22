@@ -1,10 +1,10 @@
-const projectForm = document.querySelector('.projectForm')
+const projectForm = document.querySelector('.projectForm');
+let addedProjects = [];
 
 export default function addProjectBtn() {
     let addProjectBtn = document.querySelector('.addProject');
     addProjectBtn.addEventListener('click', () => {
         projectForm.classList.remove('hidden');
-        submitNewProject();
     })
 }
 
@@ -15,21 +15,17 @@ function Project(title, description, dueDate, priority) {
     this.priority = priority;
 }
 
-function submitNewProject() {
-    const submitProjectBtn = document.querySelector('#submitProject');
-    submitProjectBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        newProjectInfo();
-        projectForm.classList.add('hidden');
-    })
-}
+const submitProjectBtn = document.querySelector('#submitProject');
+submitProjectBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    newProjectInfo();
+    projectForm.classList.add('hidden');
+})
 
 function newProjectInfo() {
-    const title = document.querySelector('#projectTitle').value;
-    const description = document.querySelector('#description').value;
-    const dueDate = document.querySelector('#dueDate').value;
-    const priority = document.querySelector('#priority').value;
-    let newProject = new Project(title, description, dueDate, priority);
-    console.log(newProject);
-    return title, description, dueDate, priority, newProject;
-}
+    let newProject = new Project(projectTitle, description, dueDate, priority);
+    addedProjects.push(newProject);
+    newProject = '';
+}  
+
+export { addedProjects };
