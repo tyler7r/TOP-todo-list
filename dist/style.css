@@ -65,3 +65,8 @@ body {
     padding: 4px;
     border-radius: 4px;
 }
+
+.ellipsis {
+    height: 20px;
+    width: 20px;
+}

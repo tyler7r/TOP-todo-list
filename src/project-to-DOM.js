@@ -9,8 +9,9 @@ export default function addProjectToContent(array) {
         projectCard.classList.add(`no${[i+1]}`);
         projectSection.appendChild(projectCard);
 
+        const projectSelect = document.querySelector('.no'+[i+1]);
+
         for (let prop in projectList) {
-            const projectSelect = document.querySelector('.no'+[i+1]);
             let projectElement = document.createElement('div');
             projectElement.classList.add(`project${prop}`);
             projectSelect.appendChild(projectElement);
@@ -21,6 +22,10 @@ export default function addProjectToContent(array) {
                 projectElement.textContent += projectList[prop];
             }
         }
+        let ellipsis = document.createElement('img');
+        ellipsis.classList.add('ellipsis');
+        ellipsis.src = 'ellipsis.svg';
+        projectSelect.appendChild(ellipsis);
     }
 }
 
@@ -32,8 +37,9 @@ function addProjectToSidebar(array) {
         projectTab.classList.add(`no${[i+1]}`);
         projectSideBarSection.appendChild(projectTab);
 
+        const projectTabSelect = document.querySelector('.no'+[i+1]);
+
         for (let prop in projectList) {
-            const projectTabSelect = document.querySelector('.no'+[i+1]);
             if (prop === 'title' || prop === 'dueDate') {
                 let projectTabElement = document.createElement('div');
                 projectTabElement.classList.add(`projectTab${prop}`);
@@ -41,6 +47,10 @@ function addProjectToSidebar(array) {
                 projectTabSelect.appendChild(projectTabElement);
             }
         }
+        let ellipsis = document.createElement('img');
+        ellipsis.classList.add('sidebarEllipsis');
+        ellipsis.src = 'ellipsis.svg';
+        projectTabSelect.appendChild(ellipsis);
     }
 }
 

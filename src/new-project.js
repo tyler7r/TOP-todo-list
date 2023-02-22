@@ -3,6 +3,7 @@ let addedProjects = [];
 
 import addProjectToContent, { addProjectToSidebar } from './project-to-DOM.js';
 
+
 export default function addProjectBtn() {
     let addProjectBtn = document.querySelector('.addProject');
     addProjectBtn.addEventListener('click', () => {
