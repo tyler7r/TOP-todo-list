@@ -71,3 +71,9 @@ body {
     height: 40px;
     width: 40px;
 }
+
+.sidebarEllipsis {
+    border: 1px solid black;
+    height: 20px;
+    width: 20px;
+}
