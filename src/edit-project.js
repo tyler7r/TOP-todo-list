@@ -41,24 +41,16 @@ function deleteProject() {
     })
 }
 
-function sidebarEllipsisFunctionality() {
-    let popupOpen = false;
-    const ellipsis = document.querySelectorAll('.sidebarEllipsis');
-    ellipsis.forEach((icon) => {
+function sidebarDeleteFunctionality() {
+    const sidebarDeleteBtn = document.querySelectorAll('.sidebarDelete');
+    sidebarDeleteBtn.forEach((icon) => {
         icon.addEventListener('click' , (e) => {
-            if (popupOpen === true) {
-                return
-            }
             let lastChar = (e.target.id).length - 1;
-            const projectTab = document.querySelector(`.projectTab.no${e.target.id.slice(lastChar)}`);
+            const projectSelect = document.querySelectorAll(`.no${e.target.id.slice(lastChar)}`);
             e.stopImmediatePropagation();
-            const deleteBtn = document.createElement('div');
-            deleteBtn.classList.add('popupDelete');
-            deleteBtn.setAttribute('id',`sdel${e.target.id.slice(lastChar)}`);
-            deleteBtn.textContent = 'Delete';
-            projectTab.appendChild(deleteBtn);
-            deleteProject();
-            popupOpen = true;
+            projectSelect.forEach((object) => {
+                object.remove();
+            })
         })
     })
 }
@@ -67,5 +59,5 @@ function editProject() {
 
 }
 
-export { sidebarEllipsisFunctionality };
+export { sidebarDeleteFunctionality };
 

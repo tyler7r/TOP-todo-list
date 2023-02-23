@@ -41,18 +41,18 @@ function addProjectToSidebar(array) {
         const projectTabSelect = document.querySelector('.no'+[i+1]);
 
         for (let prop in projectList) {
-            if (prop === 'title' || prop === 'dueDate') {
+            if (prop === 'title') {
                 let projectTabElement = document.createElement('div');
                 projectTabElement.classList.add(`projectTab${prop}`);
                 projectTabElement.textContent = projectList[prop];
                 projectTabSelect.appendChild(projectTabElement);
             }
         }
-        let ellipsis = document.createElement('img');
-        ellipsis.classList.add('sidebarEllipsis');
-        ellipsis.setAttribute('id', `sidebarE${[i+1]}`);
-        ellipsis.src = 'ellipsis.svg';
-        projectTabSelect.appendChild(ellipsis);
+        let sidebarDelete = document.createElement('img');
+        sidebarDelete.classList.add('sidebarDelete');
+        sidebarDelete.setAttribute('id', `sidebarD${[i+1]}`);
+        sidebarDelete.src = 'delbtn.svg';
+        projectTabSelect.appendChild(sidebarDelete);
     }
 }
 
