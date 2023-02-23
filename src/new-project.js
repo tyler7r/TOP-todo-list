@@ -25,7 +25,6 @@ submitProjectBtn.addEventListener('click', (e) => {
     newProjectInfo();
     projectForm.classList.add('hidden');
     clearFormEntry();
-    console.log(addedProjects);
     addProjectToContent(addedProjects);
     addProjectToSidebar(addedProjects);
     addEllipsisFunctionality();
@@ -48,4 +47,4 @@ function clearFormEntry() {
     priorityInput.value = 'low';
 }
 
-export { addedProjects };
+export { addedProjects, Project, clearFormEntry };
