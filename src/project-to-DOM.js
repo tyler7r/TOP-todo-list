@@ -18,7 +18,12 @@ export default function addProjectToContent(array) {
             if (prop === 'priority') {
                 projectElement.classList.add(`${projectList[prop]}`);
                 projectElement.textContent = '';
-            } else {
+            } else if (prop === 'description') {
+                projectElement.classList.add(`no${[i+1]}`);
+                projectElement.classList.add(`hidden`);
+                projectElement.textContent += projectList[prop];
+            } 
+            else {
                 projectElement.textContent += projectList[prop];
             }
         }
