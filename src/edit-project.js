@@ -1,29 +1,40 @@
 export default function addEllipsisFunctionality() {
-    let popUpOpen = false;
     const ellipsis = document.querySelectorAll('.ellipsis');
+    let popUpOpen = false;
+    let ellipsisClicked = false;
     ellipsis.forEach((icon) => {
         icon.addEventListener('click', (e) => {
             let lastChar = (e.target.id).length - 1;
-            if (popUpOpen === true) {
-                return
-            }
             const projectCard = document.querySelector(`.projectCard.no${e.target.id.slice(lastChar)}`);
             e.stopImmediatePropagation();
-            const popupMenu = document.createElement('div');
-            popupMenu.classList.add('popupMenu');
-            const deleteBtn = document.createElement('div');
-            deleteBtn.classList.add('popupDelete');
-            deleteBtn.setAttribute('id',`del${e.target.id.slice(lastChar)}`);
-            deleteBtn.textContent = 'Delete';
-            popupMenu.appendChild(deleteBtn);
-            const editBtn = document.createElement('div');
-            editBtn.classList.add('popupEdit');
-            editBtn.textContent = 'Edit';
-            editBtn.setAttribute('id', `edit${e.target.id.slice(lastChar)}`);
-            popupMenu.appendChild(editBtn);
-            projectCard.appendChild(popupMenu);
-            deleteProject();
-            popUpOpen = true;
+            console.log(ellipsisClicked, popUpOpen);
+            if (popUpOpen === false && ellipsisClicked === false) {
+                const popupMenu = document.createElement('div');
+                popupMenu.classList.add(`popupMenu${e.target.id.slice(lastChar)}`); 
+                const deleteBtn = document.createElement('div');
+                deleteBtn.classList.add('popupDelete');
+                deleteBtn.setAttribute('id',`del${e.target.id.slice(lastChar)}`);
+                deleteBtn.textContent = 'Delete';
+                popupMenu.appendChild(deleteBtn);
+                const editBtn = document.createElement('div');
+                editBtn.classList.add('popupEdit');
+                editBtn.textContent = 'Edit';
+                editBtn.setAttribute('id', `edit${e.target.id.slice(lastChar)}`);
+                popupMenu.appendChild(editBtn);
+                projectCard.appendChild(popupMenu);
+                deleteProject();
+                popUpOpen = true;
+                ellipsisClicked = true;
+            } else if (popUpOpen === true) {
+                const menuSelect = document.querySelector(`.popupMenu${e.target.id.slice(lastChar)}`);
+                menuSelect.classList.add('hidden');
+                ellipsisClicked = true;
+                popUpOpen = false;
+            } else if (popUpOpen === false && ellipsisClicked === true) {
+                const menuSelect = document.querySelector(`.popupMenu${e.target.id.slice(lastChar)}`);
+                menuSelect.classList.remove('hidden');
+                popUpOpen = true;
+            }
         })
     })
 }
