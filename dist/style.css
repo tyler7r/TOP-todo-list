@@ -67,13 +67,35 @@ body {
 }
 
 .ellipsis {
-    border: 1px solid red;
-    height: 40px;
-    width: 40px;
+    height: 25px;
 }
 
 .sidebarEllipsis {
     border: 1px solid black;
     height: 20px;
     width: 20px;
+}
+
+.projectSection {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin: 8px;
+    gap: 8px;
+}
+
+.projectCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    background-color: rgb(245, 245, 220, 0.8);
+    border-radius: 4px;
+    border: 1px solid rgb(211, 211, 211, 0.6);
+}
+
+.projecttitle {
+    font-weight: bold;
+    font-size: 22px;
 }
