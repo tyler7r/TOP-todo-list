@@ -99,7 +99,6 @@ export default function createEditForm(cardNo) {
     editForm.appendChild(submitEdit);
     projectSelect.appendChild(editForm);
 
-    console.log(editFormCreated);
 } else if (projectSelect.contains(document.querySelector(`.editForm.no${cardNo}`))) {
     const editForm = document.querySelector(`.editForm.no${cardNo}`);
     editForm.classList.remove('hidden');
