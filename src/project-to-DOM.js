@@ -19,13 +19,13 @@ export default function addProjectToContent(array) {
                 projectElement.classList.add(`${projectList[prop]}`);
                 projectElement.textContent = '';
             } else if (prop === 'description') {
-                projectElement.classList.add(`no${[i+1]}`);
                 projectElement.classList.add(`hidden`);
                 projectElement.textContent += projectList[prop];
             } 
             else {
                 projectElement.textContent += projectList[prop];
             }
+            projectElement.classList.add(`no${[i+1]}`);
         }
         let ellipsis = document.createElement('img');
         ellipsis.classList.add('ellipsis');
@@ -48,7 +48,9 @@ function addProjectToSidebar(array) {
         for (let prop in projectList) {
             if (prop === 'title') {
                 let projectTabElement = document.createElement('div');
-                projectTabElement.classList.add(`projectTab${prop}`);
+                projectTabElement.classList.add(`tab${prop}`);
+                projectTabElement.classList.add(`project${prop}`);
+                projectTabElement.classList.add(`no${[i+1]}`);
                 projectTabElement.textContent = projectList[prop];
                 projectTabSelect.appendChild(projectTabElement);
             }
