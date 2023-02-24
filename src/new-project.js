@@ -32,10 +32,10 @@ submitProjectBtn.addEventListener('click', (e) => {
 })
 
 function newProjectInfo() {
-    const title = document.querySelector('#projectTitle').value;
-    const description = document.querySelector('#description').value;
-    const dueDate = document.querySelector('#dueDate').value;
-    const priority = document.querySelector('#priority').value;
+    const title = document.querySelector('#projectTitle.main').value;
+    const description = document.querySelector('#description.main').value;
+    const dueDate = document.querySelector('#dueDate.main').value;
+    const priority = document.querySelector('#priority.main').value;
     let newProject = new Project(title, description, dueDate, priority);
     addedProjects.push(newProject);
 }

@@ -1,17 +1,20 @@
 import { addedProjects, Project } from './new-project.js';
 
 export default function createEditForm(cardNo) {
-    const projectSelect = document.querySelector(`.projectCard.no${cardNo}`)
+    const projectSelect = document.querySelector(`.projectCard.no${cardNo}`);
+    if (projectSelect.contains(document.querySelector(`.editForm.no${cardNo}`)) === false) {
     projectSelect.classList.add('editMode');
     let projectInfo = (addedProjects[cardNo-1]);
     const editForm = document.createElement('form');
     editForm.setAttribute('method', 'get');
+    editForm.classList.add('editForm');
+    editForm.classList.add(`no${cardNo}`);
     for (let prop in projectInfo) {
-        const propClass = document.querySelector(`.project${prop}`);
         if (prop === 'priority') {
             let selectMenu = document.createElement('select');
             selectMenu.setAttribute('name', 'priority');
             selectMenu.setAttribute('id', 'priority');
+            selectMenu.setAttribute('class', `no${cardNo}`)
             editForm.appendChild(selectMenu);
             let lowOption = document.createElement('option');
             lowOption.setAttribute('value', 'low');
@@ -34,6 +37,7 @@ export default function createEditForm(cardNo) {
             date.setAttribute('type', 'date');
             date.setAttribute('name', prop);
             date.setAttribute('id', prop);
+            date.setAttribute('class', `no${cardNo}`)
             editForm.appendChild(date);
         } else if (prop === 'title') {
             let label = document.createElement('label');
@@ -43,6 +47,7 @@ export default function createEditForm(cardNo) {
             let input = document.createElement('input');
             input.setAttribute('type', 'text');
             input.setAttribute('id', 'projectTitle');
+            input.setAttribute('class', `no${cardNo}`)
             input.setAttribute('name', prop);
             editForm.appendChild(input);
         } else {
@@ -54,6 +59,7 @@ export default function createEditForm(cardNo) {
             input.setAttribute('type', 'text');
             input.setAttribute('name', prop);
             input.setAttribute('id', prop);
+            input.setAttribute('class', `no${cardNo}`)
             editForm.appendChild(input);
         }
     }
@@ -63,11 +69,10 @@ export default function createEditForm(cardNo) {
     submitEdit.textContent = 'Done';
     submitEdit.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log(addedProjects[(cardNo)-1]);
-        const title = document.querySelector('#projectTitle').value;
-        const description = document.querySelector('#description').value;
-        const dueDate = document.querySelector('#dueDate').value;
-        const priority = document.querySelector('#priority').value;
+        const title = document.querySelector(`#projectTitle.no${cardNo}`).value;
+        const description = document.querySelector(`#description.no${cardNo}`).value;
+        const dueDate = document.querySelector(`#dueDate.no${cardNo}`).value;
+        const priority = document.querySelector(`#priority.no${cardNo}`).value;
         let editedProject = new Project(title, description, dueDate, priority);
         addedProjects[(cardNo)-1] = editedProject;
         editForm.classList.add('hidden');
@@ -79,11 +84,13 @@ export default function createEditForm(cardNo) {
                 projectNo[i].textContent = title;
             } else if (projectNo[i].classList.contains('projectdescription')) {
                 projectNo[i].textContent = description;
-            } else if (projectNo[i].classList.contains('dueDate')) {
+                projectNo[i].classList.add('hidden');
+            } else if (projectNo[i].classList.contains('projectdueDate')) {
                 projectNo[i].textContent = dueDate;
-            } else if (projectNo[i].classList.contains('priority')) {
-                projectNo[i].classList.remove('low' || 'medium' || 'high');
-                projectNo[i].textContent = priority;
+            } else if (projectNo[i].classList.contains('projectpriority')) {
+                projectNo[i].classList.remove('low');
+                projectNo[i].classList.remove('medium');
+                projectNo[i].classList.remove('high');
                 projectNo[i].classList.add(priority);
             }
         }
@@ -91,4 +98,11 @@ export default function createEditForm(cardNo) {
     })
     editForm.appendChild(submitEdit);
     projectSelect.appendChild(editForm);
+
+    console.log(editFormCreated);
+} else if (projectSelect.contains(document.querySelector(`.editForm.no${cardNo}`))) {
+    const editForm = document.querySelector(`.editForm.no${cardNo}`);
+    editForm.classList.remove('hidden');
+    projectSelect.classList.add('editMode');
+}
 }
