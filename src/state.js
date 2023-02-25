@@ -55,6 +55,7 @@ function render(){
     }
 }
 
+setView();
 // update state, rerender after each update, triggers change in view
 
 

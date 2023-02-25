@@ -1,5 +1,3 @@
-import newProjectBtn from './new-project.js';
-import { addedProjects } from './new-project.js';
 import { setView } from './state.js';
 
 setView();
