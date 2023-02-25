@@ -1,15 +1,17 @@
-import addProjectBtn, { initializeNewProjectBtn, addedProjects } from "../src/new-project.js";
-import { addProjectToSidebar } from "../src/project-to-DOM.js";
-import { sidebarDeleteFunctionality } from '../src/editProject.js';
-import createProjectForm from "../src/project-form.js";
+import addProjectBtn, { initializeNewProjectBtn, addedProjects } from "../new-project.js";
+import { addProjectToSidebar } from "../project-to-DOM.js";
+import { sidebarDeleteFunctionality } from '../edit-project.js';
+import createProjectForm from "../project-form.js";
+import setView from "../state.js";
 
 const sidebar = document.querySelector('.sidebar');
+const views = ['GENERAL', 'TODAY', 'UPCOMING'];
 
 export default function renderSidebar() {
-    renderViewButtons([GENERAL, TODAY, UPCOMING]);
+    renderViewButtons(views);
     renderSidebarProjectListTitle();
-    renderSidebarProjectList(addedProjects);
-    sidebarDeleteFunctionality();
+    // renderSidebarProjectList(addedProjects);
+    // sidebarDeleteFunctionality();
     renderNewProjectBtn();
     initializeNewProjectBtn();
 }
@@ -31,7 +33,8 @@ function renderSidebarProjectListTitle() {
     const title = document.createElement('div');
     title.classList.add('sidebarItem');
     title.classList.add('projects');
-    sidebar.appendChild('title');
+    title.textContent = 'Projects';
+    sidebar.appendChild(title);
 }
 
 function renderSidebarProjectList(projects) {

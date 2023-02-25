@@ -1,15 +1,15 @@
-import hideDetails, { revealDetails } from 'details-toggle.js';
-import createEditForm from '../src/edit-form.js';
-import addEllipsisFunctionality from '../src/edit-project.js';
-import expandProjectCard from '../src/expand-project.js';
-import addProjectToContent from '../src/project-to-DOM.js';
-import { setView } from '../src/state.js';
-import { addedProjects } from '../src/new-project.js';
+import hideDetails, { revealDetails } from '../details-toggle';
+import createEditForm from '../edit-form';
+import addEllipsisFunctionality from '../edit-project';
+import expandProjectCard from '../expand-project';
+import addProjectToContent from '../project-to-DOM';
+import setView from '../state.js';
+import { addedProjects } from '../new-project';
 
 const content = document.querySelector('.content')
 
-export function renderProjectSection() {
-    setView(GENERAL);
+function renderProjectSection() {
+    setView('GENERAL');
     renderProjectCards();
     initializeProjectCardFunctionality();
 }
@@ -39,3 +39,5 @@ function projectCardFunctionality(cardNo) {
     hideDetails(cardNo);
     createEditForm();
 }
+
+export { renderProjectSection };

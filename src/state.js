@@ -1,33 +1,33 @@
 import { addedProjects } from "./new-project";
-import { renderProjectSection } from "../components/general-view"; 
-import renderSidebar from "../components/sidebar";
+import { renderProjectSection } from "./views/general-view.js"; 
+import renderSidebar from './views/sidebar.js'
 
 const PROJECTS = addedProjects;
 
-let ACTIVE_VIEW = GENERAL;
+let ACTIVE_VIEW = 'GENERAL';
 
-export function addProject(project) {
-    PROJECTS.push(project);
-    const lastIndex = PROJECTS.lenght -1;
-    render();
-    return lastIndex
-}
+// export function addProject(project) {
+//     PROJECTS.push(project);
+//     const lastIndex = PROJECTS.lenght -1;
+//     render();
+//     return lastIndex
+// }
 
-export function editProject(oldProject, newProject) {
-    const index = PROJECTS.findIndex(oldProject);
-    PROJECTS[index] = newProject;
-    render();
-    return index
-}
+// export function editProject(oldProject, newProject) {
+//     const index = PROJECTS.findIndex(oldProject);
+//     PROJECTS[index] = newProject;
+//     render();
+//     return index
+// }
 
-export function removeProject(project) {
-    const index = PROJECTS.findIndex(project);
-    const [removed] = PROJECTS.splice(index, 1);
-    render();
-    return removed
-}
+// export function removeProject(project) {
+//     const index = PROJECTS.findIndex(project);
+//     const [removed] = PROJECTS.splice(index, 1);
+//     render();
+//     return removed
+// }
 
-export function setView(view) {
+export default function setView(view) {
     ACTIVE_VIEW = view;
     render();
 }
@@ -41,29 +41,26 @@ function render(){
     content.replaceChildren();
 
     switch (ACTIVE_VIEW) {
-        case GENERAL:
+        case 'GENERAL':
+            console.log('here');
             renderProjectSection();
             break;
-        case TODAY:
+        case 'TODAY':
             renderTodaySection();
             break;
-        case UPCOMING:
+        case 'UPCOMING':
             renderUpcomingSection();
             break;
         default:
             throw new Error(`${view} is not a valid view!`);
     }
 }
-
-setView();
 // update state, rerender after each update, triggers change in view
 
 
 
 
 // update view based on state
-
-export { setView, VIEWS };
 
 
 

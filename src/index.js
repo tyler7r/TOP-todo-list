@@ -1,9 +1,3 @@
-import { setView } from './state.js';
+import setView  from './state';
 
 setView();
-
-// newProjectBtn();
-
-// document.querySelector('#title').addEventListener('click', () => {
-//     console.log(addedProjects);
-// })

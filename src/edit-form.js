@@ -1,6 +1,6 @@
 import { addedProjects, Project } from './new-project.js';
 
-import { revealDetails } from './hide-project-details.js';
+import { revealDetails } from './details-toggle';
 
 export default function createEditForm(cardNo) {
     const projectSelect = document.querySelector(`.projectCard.no${cardNo}`);
