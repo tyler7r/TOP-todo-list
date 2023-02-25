@@ -20,18 +20,20 @@ function Project(title, description, dueDate, priority) {
     this.priority = priority;
 }
 
-const submitProjectBtn = document.querySelector('#submitProject');
-submitProjectBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    newProjectInfo();
-    projectForm.classList.add('hidden');
-    clearFormEntry();
-    addProjectToContent(addedProjects);
-    addProjectToSidebar(addedProjects);
-    addEllipsisFunctionality();
-    sidebarDeleteFunctionality();
-    expandProjectCard();
-})
+export function initializeNewProjectBtn() {
+    const submitProjectBtn = document.querySelector('#submitProject');
+    submitProjectBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        newProjectInfo();
+        projectForm.classList.add('hidden');
+        clearFormEntry();
+        addProjectToContent(addedProjects);
+        addProjectToSidebar(addedProjects);
+        addEllipsisFunctionality();
+        sidebarDeleteFunctionality();
+        expandProjectCard();
+    })
+}
 
 function newProjectInfo() {
     const title = document.querySelector('#projectTitle.main').value;
