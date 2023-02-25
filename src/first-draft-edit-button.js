@@ -1,5 +1,7 @@
 import { addedProjects, Project } from './new-project.js';
 
+import { revealDetails } from './hide-project-details.js';
+
 export default function createEditForm(cardNo) {
     const projectSelect = document.querySelector(`.projectCard.no${cardNo}`);
     if (projectSelect.contains(document.querySelector(`.editForm.no${cardNo}`)) === false) {
@@ -77,6 +79,7 @@ export default function createEditForm(cardNo) {
         addedProjects[(cardNo)-1] = editedProject;
         editForm.classList.add('hidden');
         projectSelect.classList.remove('editMode');
+        revealDetails(cardNo);
 
         let projectNo = document.querySelectorAll(`.no${cardNo}`);
         for (let i = 0; i < projectNo.length; i++) {

@@ -1,6 +1,7 @@
 import { addedProjects, Project, clearFormEntry } from "./new-project";
 import addProjectToContent, { addProjectToSidebar} from "./project-to-DOM";
 import createEditForm from "./first-draft-edit-button.js";
+import hideDetails from "./hide-project-details.js";
 
 export default function addEllipsisFunctionality() {
     const ellipsis = document.querySelectorAll('.ellipsis');
@@ -27,7 +28,7 @@ export default function addEllipsisFunctionality() {
                 popUpOpen = true;
                 deleteProject();
                 editProject(e.target.id.slice(lastChar));
-            } else if (popUpOpen === true) {
+            } else if (popUpOpen === true || projectCard.classList.contains(`.editMode`)) {
                 const menuSelect = document.querySelector(`.popupMenu${e.target.id.slice(lastChar)}`);
                 menuSelect.classList.add('hidden');
                 popUpOpen = false;
@@ -77,45 +78,10 @@ function editProject(cardNo) {
             const popupMenu = document.querySelector(`.popupMenu${cardNo}`)
             popupMenu.classList.add('hidden');
             projectSelect.classList.add('editMode');
-            let description = document.querySelector(`.projectdescription.no${e.target.id.slice(lastChar)}`);
-            description.classList.remove('hidden');
             createEditForm((e.target.id.slice(lastChar)));
-            // clickToEdit(e.target.id.slice(lastChar));
+            hideDetails(cardNo);
         })
     })
-}
-
-function clickToEdit(cardNo) {
-    let propList = addedProjects[0];
-    for (let prop in propList) {
-        let propSelect = document.querySelector(`.project${prop}.no${cardNo}`);
-        propSelect.addEventListener('click', (e) => {
-            e.stopImmediatePropagation();
-            let initialValue = propSelect.textContent;
-            propSelect.classList.add('hidden');
-
-        })
-    }
-}
-
-function displayPriorityMenu(cardNo) {
-    const projectCard = document.querySelector(`.projectCard.no${cardNo}`);
-    let selectMenu = document.createElement('select');
-    selectMenu.setAttribute('name', 'priority');
-    selectMenu.setAttribute('id', 'priority');
-    projectCard.appendChild(selectMenu);
-    let lowOption = document.createElement('option');
-    lowOption.setAttribute('value', 'low');
-    lowOption.textContent = 'Low';
-    selectMenu.appendChild(lowOption);
-    let mediumOption = document.createElement('option');
-    mediumOption.setAttribute('value', 'medium');
-    mediumOption.textContent = 'Medium';
-    selectMenu.appendChild(mediumOption);
-    let highOption = document.createElement('option');
-    highOption.setAttribute('value', 'high');
-    highOption.textContent = 'High';
-    selectMenu.appendChild(highOption);
 }
 
 export { sidebarDeleteFunctionality };

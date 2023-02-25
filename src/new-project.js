@@ -3,6 +3,7 @@ let addedProjects = [];
 
 import addProjectToContent, { addProjectToSidebar } from './project-to-DOM.js';
 import addEllipsisFunctionality, { sidebarDeleteFunctionality } from './edit-project.js';
+import expandProjectCard from './expand-project.js';
 
 
 export default function addProjectBtn() {
@@ -29,6 +30,7 @@ submitProjectBtn.addEventListener('click', (e) => {
     addProjectToSidebar(addedProjects);
     addEllipsisFunctionality();
     sidebarDeleteFunctionality();
+    expandProjectCard();
 })
 
 function newProjectInfo() {
