@@ -4,6 +4,9 @@ export default function expandProjectCard() {
         card.addEventListener('click', (e) => {
             e.stopImmediatePropagation();
             let lastChar = (e.target.className).length - 1;
+            if (! e.target.classList.contains('projectCard')) {
+                return
+            }
             const projectSelect = document.querySelector(`.projectCard.no${e.target.className.slice(lastChar)}`);
             if (projectSelect.classList.contains('editMode')) {
                 return
