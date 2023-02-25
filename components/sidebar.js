@@ -1,12 +1,12 @@
-import { initializeNewProjectBtn, addedProjects } from "../src/new-project.js";
-import { editProject, VIEWS } from '../src/state.js';
+import addProjectBtn, { initializeNewProjectBtn, addedProjects } from "../src/new-project.js";
 import { addProjectToSidebar } from "../src/project-to-DOM.js";
 import { sidebarDeleteFunctionality } from '../src/editProject.js';
+import createProjectForm from "../src/project-form.js";
 
 const sidebar = document.querySelector('.sidebar');
 
 export default function renderSidebar() {
-    renderViewButtons([General, Today, Upcoming]);
+    renderViewButtons([GENERAL, TODAY, UPCOMING]);
     renderSidebarProjectListTitle();
     renderSidebarProjectList(addedProjects);
     sidebarDeleteFunctionality();
@@ -44,4 +44,6 @@ function renderNewProjectBtn() {
     button.classList.add('addProject');
     button.textContent = '+ Add Project';
     sidebar.appendChild(button);
+    addProjectBtn();
+    createProjectForm();
 }

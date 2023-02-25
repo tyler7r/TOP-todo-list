@@ -1,9 +1,10 @@
 import { addedProjects } from "./new-project";
+import { renderProjectSection } from "../components/general-view"; 
+import renderSidebar from "../components/sidebar";
+
 const PROJECTS = addedProjects;
 
-const VIEWS = [ generalView, todayView, upcomingView ];
-
-let activeView = generalView;
+let ACTIVE_VIEW = GENERAL;
 
 export function addProject(project) {
     PROJECTS.push(project);
@@ -27,19 +28,26 @@ export function removeProject(project) {
 }
 
 export function setView(view) {
-    activeView = view;
+    ACTIVE_VIEW = view;
     render();
 }
 
 function render(){
-    switch (activeView) {
-        case generalView:
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.replaceChildren();
+    renderSidebar();
+
+    const content = document.querySelector('.content');
+    content.replaceChildren();
+
+    switch (ACTIVE_VIEW) {
+        case GENERAL:
             renderProjectSection();
             break;
-        case todayView:
+        case TODAY:
             renderTodaySection();
             break;
-        case upcomingView:
+        case UPCOMING:
             renderUpcomingSection();
             break;
         default:

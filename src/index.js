@@ -1,8 +1,11 @@
 import newProjectBtn from './new-project.js';
 import { addedProjects } from './new-project.js';
+import { setView } from './state.js';
 
-newProjectBtn();
+setView();
 
-document.querySelector('#title').addEventListener('click', () => {
-    console.log(addedProjects);
-})
+// newProjectBtn();
+
+// document.querySelector('#title').addEventListener('click', () => {
+//     console.log(addedProjects);
+// })
