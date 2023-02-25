@@ -1,6 +1,7 @@
 import { initializeNewProjectBtn, addedProjects } from "../src/new-project.js";
-import { VIEWS } from '../src/state.js';
+import { editProject, VIEWS } from '../src/state.js';
 import { addProjectToSidebar } from "../src/project-to-DOM.js";
+import { sidebarDeleteFunctionality } from '../src/editProject.js';
 
 const sidebar = document.querySelector('.sidebar');
 
@@ -8,6 +9,7 @@ export default function renderSidebar() {
     renderViewButtons([General, Today, Upcoming]);
     renderSidebarProjectListTitle();
     renderSidebarProjectList(addedProjects);
+    sidebarDeleteFunctionality();
     renderNewProjectBtn();
     initializeNewProjectBtn();
 }
