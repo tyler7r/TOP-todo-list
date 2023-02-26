@@ -12,7 +12,7 @@ export default function hideDetails(cardNo) {
 
 export function revealDetails(cardNo) {
     const projectSelect = document.querySelector(`.projectCard.no${cardNo}`);
-    const description = projectSelect.querySelector('.projectdescription');
+    const description = document.querySelector(`.projectdescription.no${cardNo}`);
     description.classList.toggle('hidden');
     const title = projectSelect.querySelector('.projecttitle');
     title.classList.remove('hidden');

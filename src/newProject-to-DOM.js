@@ -66,4 +66,6 @@ function addProjectToSidebar(array) {
     }
 }
 
+
+
 export { addProjectToSidebar };
