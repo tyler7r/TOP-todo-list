@@ -12,8 +12,8 @@ export default function renderSidebar() {
     renderSidebarProjectListTitle();
     renderSidebarProjectList(addedProjects);
     sidebarDeleteFunctionality();
-    renderNewProjectBtn();
     createProjectForm();
+    renderNewProjectBtn();
     addProjectBtn();
     initializeNewProjectBtn();
 }
@@ -24,11 +24,10 @@ function renderViewButtons(views) {
         button.classList.add("sidebarItem");
         button.setAttribute('id', viewName);
         button.textContent = viewName;
-        button.addEventListener('click', (e) => {
-            e.stopImmediatePropagation();
+        sidebar.appendChild(button);
+        button.addEventListener('click', () => {
             setView(viewName);
         })
-        sidebar.appendChild(button);
     })
 }
 

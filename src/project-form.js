@@ -1,9 +1,9 @@
 export default function createProjectForm() {
-    const sidebar = document.querySelector('.sidebar');
+    const content = document.querySelector('.content');
     const projectFormDiv = document.createElement('div');
     projectFormDiv.classList.add('projectForm');
     projectFormDiv.classList.add('hidden');
-    sidebar.appendChild(projectFormDiv);
+    content.appendChild(projectFormDiv);
     const projectForm = document.createElement('form');
     projectForm.setAttribute('method', 'get');
     projectForm.classList.add('editMode');

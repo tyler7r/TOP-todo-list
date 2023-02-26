@@ -8,7 +8,7 @@ export default function addProjectToContent(array) {
         projectCard.classList.add(`no${[i+1]}`);
         projectSection.appendChild(projectCard);
 
-        const projectSelect = document.querySelector('.no'+[i+1]);
+        const projectSelect = document.querySelector('.projectCard.no'+[i+1]);
 
         for (let prop in projectList) {
             let projectElement = document.createElement('div');
@@ -37,30 +37,32 @@ export default function addProjectToContent(array) {
 
 function addProjectToSidebar(array) {
     const projectSideBarSection = document.querySelector('.projects');
-    for (let i = (array.length-1); i < array.length; i++) {
-        let projectList = array[i]
-        let projectTab = document.createElement('div');
-        projectTab.classList.add(`projectTab`);
-        projectTab.classList.add(`no${[i+1]}`);
-        projectSideBarSection.appendChild(projectTab);
+    if (array.length > 0) {
+        for (let i = (array.length-1); i < array.length; i++) {
+            let projectList = array[i]
+            let projectTab = document.createElement('div');
+            projectTab.classList.add(`projectTab`);
+            projectTab.classList.add(`no${[i+1]}`);
+            projectSideBarSection.appendChild(projectTab);
 
-        const projectTabSelect = document.querySelector('.no'+[i+1]);
+            const projectTabSelect = document.querySelector('.no'+[i+1]);
 
-        for (let prop in projectList) {
-            if (prop === 'title') {
-                let projectTabElement = document.createElement('div');
-                projectTabElement.classList.add(`tab${prop}`);
-                projectTabElement.classList.add(`project${prop}`);
-                projectTabElement.classList.add(`no${[i+1]}`);
-                projectTabElement.textContent = projectList[prop];
-                projectTabSelect.appendChild(projectTabElement);
+            for (let prop in projectList) {
+                if (prop === 'title') {
+                    let projectTabElement = document.createElement('div');
+                    projectTabElement.classList.add(`tab${prop}`);
+                    projectTabElement.classList.add(`project${prop}`);
+                    projectTabElement.classList.add(`no${[i+1]}`);
+                    projectTabElement.textContent = projectList[prop];
+                    projectTabSelect.appendChild(projectTabElement);
+                }
             }
+            let sidebarDelete = document.createElement('img');
+            sidebarDelete.classList.add('sidebarDelete');
+            sidebarDelete.setAttribute('id', `sidebarD${[i+1]}`);
+            sidebarDelete.src = 'delbtn.svg';
+            projectTabSelect.appendChild(sidebarDelete);
         }
-        let sidebarDelete = document.createElement('img');
-        sidebarDelete.classList.add('sidebarDelete');
-        sidebarDelete.setAttribute('id', `sidebarD${[i+1]}`);
-        sidebarDelete.src = 'delbtn.svg';
-        projectTabSelect.appendChild(sidebarDelete);
     }
 }
 

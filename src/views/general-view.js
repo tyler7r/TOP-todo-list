@@ -6,14 +6,13 @@ import addProjectToContent from '../project-to-DOM';
 import setView from '../state.js';
 import { addedProjects } from '../new-project';
 
-const content = document.querySelector('.content')
-
 function renderProjectSection() {
     renderProjectCards();
     initializeProjectCardFunctionality();
 }
 
 function renderProjectCards() {
+    const content = document.querySelector('.content')
     const projectSection = document.createElement('div');
     projectSection.classList.add('projectSection');
     content.appendChild(projectSection);
@@ -24,6 +23,7 @@ function initializeProjectCardFunctionality() {
     let projects = document.querySelectorAll('.projectCard');
     projects.forEach((project) => {
         project.addEventListener('click', (e) => {
+            console.log(e);
             let lastChar = e.target.className.length - 1
             let cardNo = e.target.className.slice(lastChar);
             projectCardFunctionality(cardNo);

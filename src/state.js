@@ -33,16 +33,15 @@ export default function setView(view) {
 }
 
 function render(){
+    const content = document.querySelector('.content');
+    content.replaceChildren();
+
     const sidebar = document.querySelector('.sidebar');
     sidebar.replaceChildren();
     renderSidebar();
 
-    const content = document.querySelector('.content');
-    content.replaceChildren();
-
     switch (ACTIVE_VIEW) {
         case 'GENERAL':
-            console.log('GENERAL works');
             renderProjectSection();
             break;
         case 'TODAY':
