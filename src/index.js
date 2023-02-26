@@ -1,3 +1,3 @@
 import setView  from './state';
 
-setView();
+setView('GENERAL');

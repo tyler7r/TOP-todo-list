@@ -10,9 +10,11 @@ const views = ['GENERAL', 'TODAY', 'UPCOMING'];
 export default function renderSidebar() {
     renderViewButtons(views);
     renderSidebarProjectListTitle();
-    // renderSidebarProjectList(addedProjects);
-    // sidebarDeleteFunctionality();
+    renderSidebarProjectList(addedProjects);
+    sidebarDeleteFunctionality();
     renderNewProjectBtn();
+    createProjectForm();
+    addProjectBtn();
     initializeNewProjectBtn();
 }
 
@@ -22,8 +24,9 @@ function renderViewButtons(views) {
         button.classList.add("sidebarItem");
         button.setAttribute('id', viewName);
         button.textContent = viewName;
-        button.addEventListener('click', () => {
-            setView(viewName)
+        button.addEventListener('click', (e) => {
+            e.stopImmediatePropagation();
+            setView(viewName);
         })
         sidebar.appendChild(button);
     })
@@ -31,8 +34,8 @@ function renderViewButtons(views) {
 
 function renderSidebarProjectListTitle() {
     const title = document.createElement('div');
-    title.classList.add('sidebarItem');
     title.classList.add('projects');
+    title.classList.add('sidebarItem');
     title.textContent = 'Projects';
     sidebar.appendChild(title);
 }
@@ -47,6 +50,4 @@ function renderNewProjectBtn() {
     button.classList.add('addProject');
     button.textContent = '+ Add Project';
     sidebar.appendChild(button);
-    addProjectBtn();
-    createProjectForm();
 }

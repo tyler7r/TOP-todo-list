@@ -1,7 +1,9 @@
 export default function createProjectForm() {
+    const sidebar = document.querySelector('.sidebar');
     const projectFormDiv = document.createElement('div');
     projectFormDiv.classList.add('projectForm');
     projectFormDiv.classList.add('hidden');
+    sidebar.appendChild(projectFormDiv);
     const projectForm = document.createElement('form');
     projectForm.setAttribute('method', 'get');
     projectForm.classList.add('editMode');
@@ -44,18 +46,18 @@ export default function createProjectForm() {
 
         let title = document.createElement('label');
         title.setAttribute('for', 'projectTitle');
-        title.textContent = 'projectTitle';
+        title.textContent = 'Title';
         projectForm.appendChild(title);
         let titleInput = document.createElement('input');
-        input.setAttribute('type', 'text');
-        input.setAttribute('id', 'projectTitle');
-        input.setAttribute('name', 'projectTitle');
+        titleInput.setAttribute('type', 'text');
+        titleInput.setAttribute('id', 'projectTitle');
+        titleInput.setAttribute('name', 'projectTitle');
         titleInput.classList.add('main');
-        projectForm.appendChild(input);
+        projectForm.appendChild(titleInput);
 
         let label = document.createElement('label');
         label.setAttribute('for', 'description');
-        label.textContent = 'description';
+        label.textContent = 'Description';
         projectForm.appendChild(label);
         let input = document.createElement('input');
         input.setAttribute('type', 'text');
@@ -63,4 +65,9 @@ export default function createProjectForm() {
         input.setAttribute('id', 'description');
         input.classList.add('main');
         projectForm.appendChild(input);
+
+        let submitProject = document.createElement('button');
+        submitProject.setAttribute('id', 'submitProject');
+        submitProject.textContent = 'Add Project';
+        projectForm.appendChild(submitProject);
 }

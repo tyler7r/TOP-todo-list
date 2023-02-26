@@ -8,6 +8,7 @@ import expandProjectCard from './expand-project.js';
 
 export default function addProjectBtn() {
     let addProjectBtn = document.querySelector('.addProject');
+    const projectForm = document.querySelector('.projectForm');
     addProjectBtn.addEventListener('click', () => {
         projectForm.classList.remove('hidden');
     })
@@ -21,6 +22,7 @@ function Project(title, description, dueDate, priority) {
 }
 
 export function initializeNewProjectBtn() {
+    const projectForm = document.querySelector('.projectForm');
     const submitProjectBtn = document.querySelector('#submitProject');
     submitProjectBtn.addEventListener('click', (e) => {
         e.preventDefault();

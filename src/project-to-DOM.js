@@ -1,7 +1,6 @@
-const projectSection = document.querySelector('.projectSection');
-const projectSideBarSection = document.querySelector('.projects');
-
 export default function addProjectToContent(array) {
+    const projectSection = document.querySelector('.projectSection');
+    if (array.length > 0) {
     for (let i = (array.length-1); i < array.length; i++) {
         let projectList = array[i];
         let projectCard = document.createElement('div');
@@ -34,8 +33,10 @@ export default function addProjectToContent(array) {
         projectSelect.appendChild(ellipsis);
     }
 }
+}
 
 function addProjectToSidebar(array) {
+    const projectSideBarSection = document.querySelector('.projects');
     for (let i = (array.length-1); i < array.length; i++) {
         let projectList = array[i]
         let projectTab = document.createElement('div');

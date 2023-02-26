@@ -9,7 +9,6 @@ import { addedProjects } from '../new-project';
 const content = document.querySelector('.content')
 
 function renderProjectSection() {
-    setView('GENERAL');
     renderProjectCards();
     initializeProjectCardFunctionality();
 }

@@ -42,7 +42,7 @@ function render(){
 
     switch (ACTIVE_VIEW) {
         case 'GENERAL':
-            console.log('here');
+            console.log('GENERAL works');
             renderProjectSection();
             break;
         case 'TODAY':
@@ -52,7 +52,7 @@ function render(){
             renderUpcomingSection();
             break;
         default:
-            throw new Error(`${view} is not a valid view!`);
+            break;
     }
 }
 // update state, rerender after each update, triggers change in view
