@@ -64,7 +64,7 @@ function removeTodo(array, todo) {
     render();
 }
 
-export { removeProject, setProjectView, PROJECT_VIEW, removeTodo };
+export { removeProject, setProjectView, PROJECT_VIEW, ACTIVE_VIEW, removeTodo };
 // update state, rerender after each update, triggers change in view
 
 

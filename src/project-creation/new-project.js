@@ -3,6 +3,7 @@ const projectForm = document.querySelector('.projectForm');
 import addProjectToContent, { addProjectToSidebar } from './newProject-to-DOM.js';
 import addEllipsisFunctionality, { sidebarDeleteFunctionality } from './edit-project.js';
 import expandProjectCard from './expand-project.js';
+import setView, { ACTIVE_VIEW } from '../state';
 
 let addedProjects = [];
 
@@ -10,7 +11,12 @@ export default function addProjectBtn() {
     let addProjectBtn = document.querySelector('.addProject');
     const projectForm = document.querySelector('.projectForm');
     addProjectBtn.addEventListener('click', () => {
+        if (`${ACTIVE_VIEW}`.includes('PROJECT')) {
+            setView('GENERAL');
+            projectForm.classList.remove('hidden');
+        } else {
         projectForm.classList.remove('hidden');
+        }
     })
 }
 
