@@ -7,13 +7,6 @@ import sortDates from "./sort-project-dates";
 
 let ACTIVE_VIEW = 'GENERAL';
 
-// export function addProject(project) {
-//     PROJECTS.push(project);
-//     const lastIndex = PROJECTS.lenght -1;
-//     render();
-//     return lastIndex
-// }
-
 // export function editProject(oldProject, newProject) {
 //     const index = PROJECTS.findIndex(oldProject);
 //     PROJECTS[index] = newProject;
@@ -29,7 +22,6 @@ export default function setView(view) {
 
 function render(){
     sortDates();
-    console.log(addedProjects);
     const content = document.querySelector('.content');
     content.replaceChildren();
 
