@@ -4,8 +4,10 @@ import renderSidebar from './views/sidebar.js'
 import renderTodaySection from "./views/today-view";
 import renderUpcomingSection from "./views/upcoming-view";
 import sortDates from "./project-creation/sort-project-dates";
+import renderProjectView from "./views/project-view";
 
 let ACTIVE_VIEW = 'GENERAL';
+let PROJECT_VIEW;
 
 // export function editProject(oldProject, newProject) {
 //     const index = PROJECTS.findIndex(oldProject);
@@ -14,10 +16,15 @@ let ACTIVE_VIEW = 'GENERAL';
 //     return index
 // }
 
-
 export default function setView(view) {
     ACTIVE_VIEW = view;
     render();
+}
+
+function setProjectView(projectNo) {
+    PROJECT_VIEW = projectNo;
+    setView(`PROJECT${PROJECT_VIEW}`);
+    // render();
 }
 
 function render(){
@@ -39,6 +46,10 @@ function render(){
         case 'UPCOMING':
             renderUpcomingSection();
             break;
+        case `PROJECT${PROJECT_VIEW}`:
+            renderProjectView();
+            console.log(ACTIVE_VIEW);
+            break;
         default:
             break;
     }
@@ -49,7 +60,7 @@ function removeProject(array, project) {
     render();
 }
 
-export { removeProject };
+export { removeProject, setProjectView, PROJECT_VIEW };
 // update state, rerender after each update, triggers change in view
 
 

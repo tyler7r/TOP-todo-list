@@ -9,6 +9,5 @@ export default function sortDates() {
     for (let i = 0; i < addedProjects.length; i++) {
         addedProjects[i] = sortedProjects[i];
     }
-    console.log(addedProjects);
 }
 

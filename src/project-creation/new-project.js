@@ -14,11 +14,12 @@ export default function addProjectBtn() {
     })
 }
 
-function Project(title, description, dueDate, priority) {
+function Project(title, description, dueDate, priority, todos) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
+    this.todos = todos;
 }
 
 export function initializeNewProjectBtn() {
@@ -42,7 +43,7 @@ function newProjectInfo() {
     const description = document.querySelector('#description.main').value;
     const dueDate = document.querySelector('#dueDate.main').value;
     const priority = document.querySelector('#priority.main').value;
-    let newProject = new Project(title, description, dueDate, priority);
+    let newProject = new Project(title, description, dueDate, priority, []);
     addedProjects.push(newProject);
 }
 

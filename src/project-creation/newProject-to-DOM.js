@@ -1,3 +1,5 @@
+import { setProjectView } from "../state";
+
 export default function addProjectToContent(array) {
     const projectSection = document.querySelector('.projectSection');
     if (array.length > 0) {
@@ -62,6 +64,12 @@ function addProjectToSidebar(array) {
             sidebarDelete.setAttribute('id', `sidebarD${[i+1]}`);
             sidebarDelete.src = 'delbtn.svg';
             projectTabSelect.appendChild(sidebarDelete);
+
+            const title = document.querySelector(`.tabtitle.no${[i+1]}`);
+            title.addEventListener('click', (e) => {
+                let lastChar = e.target.className.length - 1;
+                setProjectView(e.target.className.slice(lastChar));
+            })
         }
     }
 }
