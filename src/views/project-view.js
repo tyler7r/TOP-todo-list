@@ -3,11 +3,14 @@ import { PROJECT_VIEW } from "../state";
 import { addAllTodosToDOM } from "../todo-creation/add-todo-to-DOM";
 import { submitTodoBtn } from "../todo-creation/new-todo";
 import createTodoForm from "../todo-creation/todo-form";
+import addTodoEllipsisFunctionality from "../todo-creation/edit-todo";
+import expandTodoCard from "../todo-creation/expand-todo";
 
 export default function renderProjectView() {
     renderProjectViewTitle();
     renderProjectTodosTitle();
     renderProjectTodos();
+    initializeTodoCardFunctionality();
     renderNewTodoBtn();
 }
 
@@ -42,6 +45,20 @@ function renderNewTodoBtn() {
     button.textContent = '+ Add Todo'
     projectView.appendChild(button);
     initializeAddTodoButton()
+}
+
+function initializeTodoCardFunctionality() {
+    let todos = document.querySelectorAll('.todoCard');
+    todos.forEach((todo) => {
+        todo.addEventListener('click', () => {
+            todoCardFunctionality();
+        })
+    })
+}
+
+function todoCardFunctionality() {
+    addTodoEllipsisFunctionality();
+    expandTodoCard();
 }
 
 function initializeAddTodoButton() {

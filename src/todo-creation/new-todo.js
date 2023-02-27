@@ -2,6 +2,8 @@ import { addedProjects } from "../project-creation/new-project";
 import { PROJECT_VIEW } from "../state";
 import addTodoToDOM from "./add-todo-to-DOM";
 import { clearFormEntry } from "../project-creation/new-project";
+import addTodoEllipsisFunctionality from "./edit-todo";
+import expandTodoCard from "./expand-todo";
 
 let todoList = [];
 
@@ -21,6 +23,8 @@ function submitTodoBtn() {
         todoForm.classList.add('hidden');
         addTodoToDOM(addedProjects[PROJECT_VIEW-1].todos);
         clearFormEntry('todoPriority');
+        addTodoEllipsisFunctionality();
+        expandTodoCard();
     })
 }
 
@@ -34,5 +38,5 @@ function newTodoInfo() {
     addedProjects[PROJECT_VIEW - 1].todos.push(newTodo);
 }
 
-export { submitTodoBtn };
+export { submitTodoBtn, Todo };
 

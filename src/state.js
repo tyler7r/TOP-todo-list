@@ -48,7 +48,6 @@ function render(){
             break;
         case `PROJECT${PROJECT_VIEW}`:
             renderProjectView();
-            console.log(ACTIVE_VIEW);
             break;
         default:
             break;

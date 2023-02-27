@@ -1,10 +1,9 @@
-import { addedProjects } from "./new-project";
-import addProjectToContent, { addProjectToSidebar} from "./newProject-to-DOM";
-import createTodoForm from "./todo-form";
-import hideDetails from "./details-toggle.js";
+import { addedProjects } from '../project-creation/new-project'
+import createTodoEditForm from './todo-edit-form'
+import hideDetails from "../project-creation/details-toggle";
 import { removeTodo, PROJECT_VIEW } from "../state";
 
-export default function addEllipsisFunctionality() {
+export default function addTodoEllipsisFunctionality() {
     const ellipsis = document.querySelectorAll('.todoellipsis');
     let popUpOpen = false;
     ellipsis.forEach((icon) => {
@@ -12,7 +11,7 @@ export default function addEllipsisFunctionality() {
             let lastChar = (e.target.id).length - 1;
             const todoCard = document.querySelector(`.todoCard.no${e.target.id.slice(lastChar)}`);
             e.stopImmediatePropagation();
-            if (todoCard.contains(document.querySelector(`.popupMenu${e.target.id.slice(lastChar)}`)) === false) {
+            if (todoCard.contains(document.querySelector(`.todoPopupMenu${e.target.id.slice(lastChar)}`)) === false) {
                 const popupMenu = document.createElement('div');
                 popupMenu.classList.add(`todoPopupMenu${e.target.id.slice(lastChar)}`); 
                 const deleteBtn = document.createElement('div');
@@ -63,7 +62,7 @@ function editProject(cardNo) {
             const popupMenu = document.querySelector(`.todoPopupMenu${cardNo}`)
             popupMenu.classList.add('hidden');
             todoSelect.classList.add('editMode');
-            createTodoForm((e.target.id.slice(lastChar)));
+            createTodoEditForm((e.target.id.slice(lastChar)));
             hideDetails('todo', cardNo);
         })
     })
