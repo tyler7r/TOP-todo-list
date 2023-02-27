@@ -1,11 +1,13 @@
 import { addedProjects } from "../project-creation/new-project";
 import { PROJECT_VIEW } from "../state";
+import { addAllTodosToDOM } from "../todo-creation/add-todo-to-DOM";
 import { submitTodoBtn } from "../todo-creation/new-todo";
 import createTodoForm from "../todo-creation/todo-form";
 
 export default function renderProjectView() {
     renderProjectViewTitle();
-    // renderProjectTodos();
+    renderProjectTodosTitle();
+    renderProjectTodos();
     renderNewTodoBtn();
 }
 
@@ -20,8 +22,16 @@ function renderProjectViewTitle() {
     projectView.appendChild(title);
 }
 
+function renderProjectTodosTitle() {
+    const projectView = document.querySelector('.projectView');
+    const todos = document.createElement('div');
+    todos.classList.add('todos');
+    todos.textContent = 'Project Todos';
+    projectView.appendChild(todos);
+}
+
 function renderProjectTodos() {
-    
+    addAllTodosToDOM(addedProjects[PROJECT_VIEW-1].todos);
 }
 
 function renderNewTodoBtn() {

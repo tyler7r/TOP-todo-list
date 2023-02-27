@@ -29,7 +29,7 @@ export function initializeNewProjectBtn() {
         e.preventDefault();
         newProjectInfo();
         projectForm.classList.add('hidden');
-        clearFormEntry();
+        clearFormEntry('priority');
         addProjectToContent(addedProjects);
         addProjectToSidebar(addedProjects);
         addEllipsisFunctionality();
@@ -47,10 +47,10 @@ function newProjectInfo() {
     addedProjects.push(newProject);
 }
 
-function clearFormEntry() {
+function clearFormEntry(priorityName) {
     let allInputs = document.querySelectorAll('input');
     allInputs.forEach((input) => input.value = '');
-    let priorityInput = document.querySelector('#priority');
+    let priorityInput = document.querySelector(`#${priorityName}`);
     priorityInput.value = 'low';
 }
 

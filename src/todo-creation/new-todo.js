@@ -1,5 +1,9 @@
 import { addedProjects } from "../project-creation/new-project";
 import { PROJECT_VIEW } from "../state";
+import addTodoToDOM from "./add-todo-to-DOM";
+import { clearFormEntry } from "../project-creation/new-project";
+
+let todoList = [];
 
 function Todo(title, description, dueDate, priority) {
     this.title = title;
@@ -15,6 +19,8 @@ function submitTodoBtn() {
         newTodoInfo();
         const todoForm = document.querySelector('.todoForm')
         todoForm.classList.add('hidden');
+        addTodoToDOM(addedProjects[PROJECT_VIEW-1].todos);
+        clearFormEntry('todoPriority');
     })
 }
 
@@ -24,6 +30,7 @@ function newTodoInfo() {
     const dueDate = document.querySelector(`#todoDueDate.main`).value;
     const priority = document.querySelector(`#todoPriority.main`).value;
     let newTodo = new Todo(title, description, dueDate, priority);
+    todoList.push(newTodo);
     addedProjects[PROJECT_VIEW - 1].todos.push(newTodo);
 }
 
