@@ -3,6 +3,7 @@ import { renderProjectSection } from "./views/general-view.js";
 import renderSidebar from './views/sidebar.js'
 import renderTodaySection from "./views/today-view";
 import renderUpcomingSection from "./views/upcoming-view";
+import sortDates from "./sort-project-dates";
 
 let ACTIVE_VIEW = 'GENERAL';
 
@@ -27,6 +28,8 @@ export default function setView(view) {
 }
 
 function render(){
+    sortDates();
+    console.log(addedProjects);
     const content = document.querySelector('.content');
     content.replaceChildren();
 
