@@ -14,7 +14,6 @@ function renderProjectCards() {
     projectSection.classList.add('projectSection');
     content.appendChild(projectSection);
     addAllProjectsToDOM(addedProjects);
-    // addProjectToContent(addedProjects);
 }
 
 function initializeProjectCardFunctionality() {

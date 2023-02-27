@@ -15,6 +15,7 @@ export default function createProjectForm() {
         let priority = document.createElement('label');
         priority.setAttribute('for', 'priority');
         priority.textContent = 'Priority Level';  
+        formPriority.appendChild(priority);
         let selectMenu = document.createElement('select');
         selectMenu.setAttribute('name', 'priority');
         selectMenu.setAttribute('id', 'priority');
@@ -33,38 +34,47 @@ export default function createProjectForm() {
         highOption.textContent = 'High';
         selectMenu.appendChild(highOption); 
 
+        let dueDateDiv = document.createElement('div');
+        dueDateDiv.classList.add('dueDateDiv');
+        projectForm.appendChild(dueDateDiv);
         let dueDate = document.createElement('label');
         dueDate.setAttribute('for', 'dueDate');
         dueDate.textContent = 'Due Date';
-        projectForm.appendChild(dueDate);
+        dueDateDiv.appendChild(dueDate);
         let date = document.createElement('input');
         date.setAttribute('type', 'date');
         date.setAttribute('name', 'dueDate');
         date.setAttribute('id', 'dueDate');
         date.classList.add('main');
-        projectForm.appendChild(date);
+        dueDateDiv.appendChild(date);
 
+        let titleDiv = document.createElement('div');
+        titleDiv.classList.add('titleDiv');
+        projectForm.appendChild(titleDiv);
         let title = document.createElement('label');
         title.setAttribute('for', 'projectTitle');
         title.textContent = 'Title';
-        projectForm.appendChild(title);
+        titleDiv.appendChild(title);
         let titleInput = document.createElement('input');
         titleInput.setAttribute('type', 'text');
         titleInput.setAttribute('id', 'projectTitle');
         titleInput.setAttribute('name', 'projectTitle');
         titleInput.classList.add('main');
-        projectForm.appendChild(titleInput);
+        titleDiv.appendChild(titleInput);
 
+        let descriptionDiv = document.createElement('div');
+        descriptionDiv.classList.add('descriptionDiv');
+        projectForm.appendChild(descriptionDiv);
         let label = document.createElement('label');
         label.setAttribute('for', 'description');
         label.textContent = 'Description';
-        projectForm.appendChild(label);
+        descriptionDiv.appendChild(label);
         let input = document.createElement('input');
         input.setAttribute('type', 'text');
         input.setAttribute('name', 'description');
         input.setAttribute('id', 'description');
         input.classList.add('main');
-        projectForm.appendChild(input);
+        descriptionDiv.appendChild(input);
 
         let submitProject = document.createElement('button');
         submitProject.setAttribute('id', 'submitProject');

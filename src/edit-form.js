@@ -13,11 +13,18 @@ export default function createEditForm(cardNo) {
     editForm.classList.add(`no${cardNo}`);
     for (let prop in projectInfo) {
         if (prop === 'priority') {
+            let div = document.createElement('div');
+            div.classList.add('priorityDiv');
+            editForm.appendChild(div);
+            let label = document.createElement('label');
+            label.setAttribute('for', prop);
+            label.textContent = 'Priority Level'
+            div.appendChild(label);
             let selectMenu = document.createElement('select');
             selectMenu.setAttribute('name', 'priority');
             selectMenu.setAttribute('id', 'priority');
             selectMenu.setAttribute('class', `no${cardNo}`)
-            editForm.appendChild(selectMenu);
+            div.appendChild(selectMenu);
             let lowOption = document.createElement('option');
             lowOption.setAttribute('value', 'low');
             lowOption.textContent = 'Low';
@@ -31,38 +38,47 @@ export default function createEditForm(cardNo) {
             highOption.textContent = 'High';
             selectMenu.appendChild(highOption); 
         } else if (prop === 'dueDate') {
+            let div = document.createElement('div');
+            div.classList.add('dueDateDiv');
+            editForm.appendChild(div)
             let label = document.createElement('label');
             label.setAttribute('for', prop);
-            label.textContent = prop;
-            editForm.appendChild(label);
+            label.textContent = 'Due Date';
+            div.appendChild(label);
             let date = document.createElement('input');
             date.setAttribute('type', 'date');
             date.setAttribute('name', prop);
             date.setAttribute('id', prop);
             date.setAttribute('class', `no${cardNo}`)
-            editForm.appendChild(date);
+            div.appendChild(date);
         } else if (prop === 'title') {
+            let div = document.createElement('div');
+            div.classList.add('titleDiv');
+            editForm.appendChild(div);
             let label = document.createElement('label');
             label.setAttribute('for', prop);
-            label.textContent = prop;
-            editForm.appendChild(label);
+            label.textContent = 'Title';
+            div.appendChild(label);
             let input = document.createElement('input');
             input.setAttribute('type', 'text');
             input.setAttribute('id', 'projectTitle');
             input.setAttribute('class', `no${cardNo}`)
             input.setAttribute('name', prop);
-            editForm.appendChild(input);
+            div.appendChild(input);
         } else {
+            let div = document.createElement('div');
+            div.classList.add('descriptionDiv');
+            editForm.appendChild(div);
             let label = document.createElement('label');
             label.setAttribute('for', prop);
-            label.textContent = prop;
-            editForm.appendChild(label);
+            label.textContent = 'Description';
+            div.appendChild(label);
             let input = document.createElement('input');
             input.setAttribute('type', 'text');
             input.setAttribute('name', prop);
             input.setAttribute('id', prop);
             input.setAttribute('class', `no${cardNo}`)
-            editForm.appendChild(input);
+            div.appendChild(input);
         }
     }
     let submitEdit = document.createElement('button');
