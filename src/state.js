@@ -1,9 +1,9 @@
-import { addedProjects } from "./new-project";
+import { addedProjects } from "./project-creation/new-project";
 import { renderProjectSection } from "./views/general-view.js"; 
 import renderSidebar from './views/sidebar.js'
 import renderTodaySection from "./views/today-view";
 import renderUpcomingSection from "./views/upcoming-view";
-import sortDates from "./sort-project-dates";
+import sortDates from "./project-creation/sort-project-dates";
 
 let ACTIVE_VIEW = 'GENERAL';
 

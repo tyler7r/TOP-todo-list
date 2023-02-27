@@ -1,5 +1,5 @@
 import { parseISO, isThisWeek } from "date-fns";
-import { addedProjects } from "../new-project";
+import { addedProjects } from "../project-creation/new-project";
 import { renderProjectCards, initializeProjectCardFunctionality } from "./general-view";
 
 let upcomingProjects = [];

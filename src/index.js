@@ -1,7 +1,6 @@
 import { isToday, toDate, parseISO } from 'date-fns';
-import { addedProjects } from './new-project';
 import setView  from './state';
-import sortDates from './sort-project-dates';
+import sortDates from './project-creation/sort-project-dates';
 
 const title = document.querySelector('#title');
 title.addEventListener('click', () => {

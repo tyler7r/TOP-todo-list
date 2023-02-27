@@ -2,7 +2,7 @@ import { addedProjects } from "./new-project";
 import addProjectToContent, { addProjectToSidebar} from "./newProject-to-DOM";
 import createEditForm from "./edit-form.js";
 import hideDetails from "./details-toggle.js";
-import { removeProject } from "./state";
+import { removeProject } from "../state";
 
 export default function addEllipsisFunctionality() {
     const ellipsis = document.querySelectorAll('.ellipsis');

@@ -1,9 +1,9 @@
-import addProjectBtn, { initializeNewProjectBtn, addedProjects } from "../new-project.js";
-import { addProjectToSidebar } from "../newProject-to-DOM.js";
-import { sidebarDeleteFunctionality } from '../edit-project.js';
-import createProjectForm from "../project-form.js";
+import addProjectBtn, { initializeNewProjectBtn, addedProjects } from "../project-creation/new-project.js";
+import { addProjectToSidebar } from "../project-creation/newProject-to-DOM.js";
+import { sidebarDeleteFunctionality } from '../project-creation/edit-project.js';
+import createProjectForm from "../project-creation/project-form.js";
 import setView from "../state.js";
-import { addAllProjectsToSidebar } from "../allProjects-to-DOM.js";
+import { addAllProjectsToSidebar } from "../project-creation/allProjects-to-DOM.js";
 
 const sidebar = document.querySelector('.sidebar');
 const views = ['GENERAL', 'TODAY', 'UPCOMING'];

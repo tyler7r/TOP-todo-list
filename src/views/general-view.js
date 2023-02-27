@@ -1,7 +1,7 @@
-import addEllipsisFunctionality from '../edit-project';
-import expandProjectCard from '../expand-project';
-import addAllProjectsToDOM from '../allProjects-to-DOM';
-import { addedProjects } from '../new-project';
+import addEllipsisFunctionality from '../project-creation/edit-project';
+import expandProjectCard from '../project-creation/expand-project';
+import addAllProjectsToDOM from '../project-creation/allProjects-to-DOM';
+import { addedProjects } from '../project-creation/new-project';
 
 function renderProjectSection() {
     renderProjectCards(addedProjects);
