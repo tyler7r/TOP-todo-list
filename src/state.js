@@ -2,6 +2,7 @@ import { addedProjects } from "./new-project";
 import { renderProjectSection } from "./views/general-view.js"; 
 import renderSidebar from './views/sidebar.js'
 import renderTodaySection from "./views/today-view";
+import renderUpcomingSection from "./views/upcoming-view";
 
 let ACTIVE_VIEW = 'GENERAL';
 
