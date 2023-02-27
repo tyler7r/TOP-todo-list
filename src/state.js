@@ -3,8 +3,6 @@ import { renderProjectSection } from "./views/general-view.js";
 import renderSidebar from './views/sidebar.js'
 import renderTodaySection from "./views/today-view";
 
-const PROJECTS = addedProjects;
-
 let ACTIVE_VIEW = 'GENERAL';
 
 // export function addProject(project) {
@@ -21,12 +19,6 @@ let ACTIVE_VIEW = 'GENERAL';
 //     return index
 // }
 
-// export function removeProject(project) {
-//     const index = PROJECTS.findIndex(project);
-//     const [removed] = PROJECTS.splice(index, 1);
-//     render();
-//     return removed
-// }
 
 export default function setView(view) {
     ACTIVE_VIEW = view;
@@ -55,6 +47,13 @@ function render(){
             break;
     }
 }
+
+function removeProject(array, project) {
+    array.splice(project, 1);
+    render();
+}
+
+export { removeProject };
 // update state, rerender after each update, triggers change in view
 
 

@@ -1,10 +1,10 @@
 const projectForm = document.querySelector('.projectForm');
-let addedProjects = [];
 
 import addProjectToContent, { addProjectToSidebar } from './newProject-to-DOM.js';
 import addEllipsisFunctionality, { sidebarDeleteFunctionality } from './edit-project.js';
 import expandProjectCard from './expand-project.js';
 
+let addedProjects = [];
 
 export default function addProjectBtn() {
     let addProjectBtn = document.querySelector('.addProject');

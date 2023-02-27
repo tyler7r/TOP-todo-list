@@ -1,7 +1,8 @@
-import { addedProjects, Project, clearFormEntry } from "./new-project";
+import { addedProjects } from "./new-project";
 import addProjectToContent, { addProjectToSidebar} from "./newProject-to-DOM";
 import createEditForm from "./edit-form.js";
 import hideDetails from "./details-toggle.js";
+import { removeProject } from "./state";
 
 export default function addEllipsisFunctionality() {
     const ellipsis = document.querySelectorAll('.ellipsis');
@@ -46,10 +47,8 @@ function deleteProject() {
     deleteBtn.forEach((button) => {
         button.addEventListener('click', (e) => {
             let lastChar = (e.target.id).length - 1;
-            const projectSelect = document.querySelectorAll(`.no${e.target.id.slice(lastChar)}`);
-            projectSelect.forEach((object) => {
-                object.remove();
-            })
+            const projectNo = (e.target.id.slice(lastChar)) - 1;
+            removeProject(addedProjects, projectNo);
         })
     })
 }
@@ -59,11 +58,9 @@ function sidebarDeleteFunctionality() {
     sidebarDeleteBtn.forEach((icon) => {
         icon.addEventListener('click' , (e) => {
             let lastChar = (e.target.id).length - 1;
-            const projectSelect = document.querySelectorAll(`.no${e.target.id.slice(lastChar)}`);
             e.stopImmediatePropagation();
-            projectSelect.forEach((object) => {
-                object.remove();
-            })
+            const projectNo = (e.target.id.slice(lastChar)) - 1;
+            removeProject(addedProjects, projectNo);
         })
     })
 }
