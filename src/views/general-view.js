@@ -4,24 +4,22 @@ import addAllProjectsToDOM from '../allProjects-to-DOM';
 import { addedProjects } from '../new-project';
 
 function renderProjectSection() {
-    renderProjectCards();
+    renderProjectCards(addedProjects);
     initializeProjectCardFunctionality();
 }
 
-function renderProjectCards() {
+function renderProjectCards(array) {
     const content = document.querySelector('.content')
     const projectSection = document.createElement('div');
     projectSection.classList.add('projectSection');
     content.appendChild(projectSection);
-    addAllProjectsToDOM(addedProjects);
+    addAllProjectsToDOM(array);
 }
 
 function initializeProjectCardFunctionality() {
     let projects = document.querySelectorAll('.projectCard');
     projects.forEach((project) => {
-        project.addEventListener('click', (e) => {
-            let lastChar = e.target.className.length - 1
-            let cardNo = e.target.className.slice(lastChar);
+        project.addEventListener('click', () => {
             projectCardFunctionality();
         })
     })
@@ -32,4 +30,4 @@ function projectCardFunctionality() {
     expandProjectCard();
 }
 
-export { renderProjectSection };
+export { renderProjectSection, renderProjectCards, initializeProjectCardFunctionality };
