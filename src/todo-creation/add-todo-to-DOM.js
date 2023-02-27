@@ -29,7 +29,7 @@ export default function addTodoToDOM(array) {
                 todoElement.classList.add(`no${[i+1]}`);
             }
             let ellipsis = document.createElement('img');
-            ellipsis.classList.add('todoEllipsis');
+            ellipsis.classList.add('todoellipsis');
             ellipsis.setAttribute('id', `e${[i+1]}`);
             ellipsis.src = 'ellipsis.svg';
             cardSelect.appendChild(ellipsis);
@@ -66,7 +66,7 @@ export function addAllTodosToDOM(array) {
                 todoElement.classList.add(`no${[i+1]}`);
             }
             let ellipsis = document.createElement('img');
-            ellipsis.classList.add('todoEllipsis');
+            ellipsis.classList.add('todoellipsis');
             ellipsis.setAttribute('id', `e${[i+1]}`);
             ellipsis.src = 'ellipsis.svg';
             cardSelect.appendChild(ellipsis);

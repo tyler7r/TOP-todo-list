@@ -29,7 +29,7 @@ export default function addAllProjectsToDOM(array) {
             projectElement.classList.add(`no${[i+1]}`);
         }
         let ellipsis = document.createElement('img');
-        ellipsis.classList.add('ellipsis');
+        ellipsis.classList.add('projectellipsis');
         ellipsis.setAttribute('id', `e${[i+1]}`);
         ellipsis.src = 'ellipsis.svg';
         projectSelect.appendChild(ellipsis);

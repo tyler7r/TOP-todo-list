@@ -5,7 +5,7 @@ import hideDetails from "./details-toggle.js";
 import { removeProject } from "../state";
 
 export default function addEllipsisFunctionality() {
-    const ellipsis = document.querySelectorAll('.ellipsis');
+    const ellipsis = document.querySelectorAll('.projectellipsis');
     let popUpOpen = false;
     ellipsis.forEach((icon) => {
         icon.addEventListener('click', (e) => {
@@ -75,8 +75,8 @@ function editProject(cardNo) {
             const popupMenu = document.querySelector(`.popupMenu${cardNo}`)
             popupMenu.classList.add('hidden');
             projectSelect.classList.add('editMode');
+            hideDetails('project', cardNo);
             createEditForm((e.target.id.slice(lastChar)));
-            hideDetails(cardNo);
         })
     })
 }

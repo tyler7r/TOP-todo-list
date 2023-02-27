@@ -60,7 +60,12 @@ function removeProject(array, project) {
     render();
 }
 
-export { removeProject, setProjectView, PROJECT_VIEW };
+function removeTodo(array, todo) {
+    array.splice(todo, 1);
+    render();
+}
+
+export { removeProject, setProjectView, PROJECT_VIEW, removeTodo };
 // update state, rerender after each update, triggers change in view
 
 

@@ -67,7 +67,7 @@ body {
     border-radius: 4px;
 }
 
-.ellipsis, .todoEllipsis {
+.projectellipsis, .todoEllipsis {
     height: 25px;
 }
 

@@ -65,6 +65,8 @@ export default function createEditForm(cardNo) {
             input.setAttribute('class', `no${cardNo}`)
             input.setAttribute('name', prop);
             div.appendChild(input);
+        } else if (prop === 'todos') {
+            continue;
         } else {
             let div = document.createElement('div');
             div.classList.add('descriptionDiv');
@@ -91,11 +93,12 @@ export default function createEditForm(cardNo) {
         const description = document.querySelector(`#description.no${cardNo}`).value;
         const dueDate = document.querySelector(`#dueDate.no${cardNo}`).value;
         const priority = document.querySelector(`#priority.no${cardNo}`).value;
-        let editedProject = new Project(title, description, dueDate, priority);
+        const todos = addedProjects[cardNo - 1].todos;
+        let editedProject = new Project(title, description, dueDate, priority, todos);
         addedProjects[(cardNo)-1] = editedProject;
         editForm.classList.add('hidden');
         projectSelect.classList.remove('editMode');
-        revealDetails(cardNo);
+        revealDetails('project', cardNo);
 
         let projectNo = document.querySelectorAll(`.no${cardNo}`);
         for (let i = 0; i < projectNo.length; i++) {
