@@ -2,6 +2,7 @@ import addEllipsisFunctionality from '../project-creation/edit-project';
 import expandProjectCard, { titleClick } from '../project-creation/expand-project';
 import addAllProjectsToDOM from '../project-creation/allProjects-to-DOM';
 import { addedProjects } from '../project-creation/new-project';
+import completedTask from '../shared-creation.js/completed-task';
 
 function renderProjectSection() {
     renderProjectCards(addedProjects);
@@ -29,6 +30,7 @@ function projectCardFunctionality() {
     addEllipsisFunctionality();
     expandProjectCard();
     titleClick();
+    completedTask('project');
 }
 
 export { renderProjectSection, renderProjectCards, initializeProjectCardFunctionality };

@@ -4,6 +4,7 @@ import addProjectToContent, { addProjectToSidebar } from './newProject-to-DOM.js
 import addEllipsisFunctionality, { sidebarDeleteFunctionality } from './edit-project.js';
 import expandProjectCard, { titleClick } from './expand-project.js';
 import setView, { ACTIVE_VIEW } from '../state';
+import completedTask from '../shared-creation.js/completed-task.js';
 
 let addedProjects = [];
 
@@ -42,6 +43,7 @@ export function initializeNewProjectBtn() {
         sidebarDeleteFunctionality();
         expandProjectCard();
         titleClick();
+        completedTask('project');
     })
 }
 

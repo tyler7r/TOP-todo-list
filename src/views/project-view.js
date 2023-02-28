@@ -5,6 +5,7 @@ import { submitTodoBtn } from "../todo-creation/new-todo";
 import createTodoForm from "../todo-creation/todo-form";
 import addTodoEllipsisFunctionality from "../todo-creation/edit-todo";
 import expandTodoCard from "../todo-creation/expand-todo";
+import completedTask from "../shared-creation.js/completed-task";
 
 export default function renderProjectView() {
     renderProjectViewTitle();
@@ -59,6 +60,7 @@ function initializeTodoCardFunctionality() {
 function todoCardFunctionality() {
     addTodoEllipsisFunctionality();
     expandTodoCard();
+    completedTask('todo');
 }
 
 function initializeAddTodoButton() {

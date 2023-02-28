@@ -78,8 +78,6 @@ export default function createTodoForm() {
         input.classList.add('main');
         descriptionDiv.appendChild(input);
 
-
-
         let submitTodo = document.createElement('button');
         submitTodo.setAttribute('id', 'submitTodo');
         submitTodo.textContent = 'Add Todo';

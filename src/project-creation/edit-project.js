@@ -2,7 +2,7 @@ import { addedProjects } from "./new-project";
 import addProjectToContent, { addProjectToSidebar} from "./newProject-to-DOM";
 import createEditForm from "./edit-form.js";
 import hideDetails from "./details-toggle.js";
-import setView, { removeProject } from "../state";
+import setView, { removeProject, ACTIVE_VIEW } from "../state";
 
 export default function addEllipsisFunctionality() {
     const ellipsis = document.querySelectorAll('.projectellipsis');
@@ -60,7 +60,7 @@ function sidebarDeleteFunctionality() {
             let lastChar = (e.target.id).length - 1;
             e.stopImmediatePropagation();
             const projectNo = (e.target.id.slice(lastChar)) - 1;
-            setView('GENERAL');
+            setView('GENERAL')
             removeProject(addedProjects, projectNo);
         })
     })

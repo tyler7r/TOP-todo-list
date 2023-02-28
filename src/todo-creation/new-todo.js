@@ -4,6 +4,7 @@ import addTodoToDOM from "./add-todo-to-DOM";
 import { clearFormEntry } from "../project-creation/new-project";
 import addTodoEllipsisFunctionality from "./edit-todo";
 import expandTodoCard from "./expand-todo";
+import completedTask from "../shared-creation.js/completed-task";
 
 let todoList = [];
 
@@ -25,6 +26,7 @@ function submitTodoBtn() {
         clearFormEntry('todoPriority');
         addTodoEllipsisFunctionality();
         expandTodoCard();
+        completedTask('todo');
     })
 }
 
