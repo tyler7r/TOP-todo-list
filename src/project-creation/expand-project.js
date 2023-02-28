@@ -1,3 +1,4 @@
+import { setProjectView } from "../state";
 export default function expandProjectCard() {
     const projectCards = document.querySelectorAll('.projectCard');
     projectCards.forEach((card) => {
@@ -11,8 +12,7 @@ export default function expandProjectCard() {
             if (projectSelect.classList.contains('editMode')) {
                 return
             } else {
-            const description = projectSelect.querySelector('.projectdescription');
-            description.classList.toggle('hidden');
+                setProjectView(e.target.className.slice(lastChar));
             }
         })
     })
