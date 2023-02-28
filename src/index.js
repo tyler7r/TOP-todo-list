@@ -6,7 +6,7 @@ import { addedProjects } from './project-creation/new-project';
 
 const title = document.querySelector('#title');
 title.addEventListener('click', () => {
-    getActiveTodos(addedProjects);
+    console.log(addedProjects);
 })
 
 setView('GENERAL');

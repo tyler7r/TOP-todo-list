@@ -11,7 +11,7 @@ export default function renderProjectView() {
     renderProjectViewTitle();
     renderProjectViewDescription();
     renderProjectTodosTitle();
-    renderProjectTodos();
+    renderProjectTodos(addedProjects[PROJECT_VIEW-1].todos);
     initializeTodoCardFunctionality();
     renderNewTodoBtn();
 }
@@ -41,12 +41,12 @@ function renderProjectTodosTitle() {
     const projectView = document.querySelector('.projectView');
     const todos = document.createElement('div');
     todos.classList.add('todos');
-    todos.textContent = 'Project Todos';
+    todos.textContent = 'TODOS';
     projectView.appendChild(todos);
 }
 
-function renderProjectTodos() {
-    addAllTodosToDOM(addedProjects[PROJECT_VIEW-1].todos);
+function renderProjectTodos(array) {
+    addAllTodosToDOM(array);
 }
 
 function renderNewTodoBtn() {
@@ -82,3 +82,5 @@ function initializeAddTodoButton() {
     })
     submitTodoBtn();
 }
+
+export { renderProjectTodos, initializeTodoCardFunctionality};

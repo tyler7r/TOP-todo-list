@@ -13,6 +13,10 @@ function renderProjectCards(array) {
     const content = document.querySelector('.content')
     const projectSection = document.createElement('div');
     projectSection.classList.add('projectSection');
+    const projectSectionTitle = document.createElement('div');
+    projectSectionTitle.classList.add('projectSectionTitle');
+    projectSectionTitle.textContent = 'PROJECTS'
+    projectSection.appendChild(projectSectionTitle);
     content.appendChild(projectSection);
     addAllProjectsToDOM(array);
 }

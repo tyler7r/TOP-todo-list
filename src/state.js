@@ -10,13 +10,6 @@ import sortTodoDates, { activeTodos } from "./todo-creation/sort-todo-dates";
 let ACTIVE_VIEW = 'GENERAL';
 let PROJECT_VIEW;
 
-// export function editProject(oldProject, newProject) {
-//     const index = PROJECTS.findIndex(oldProject);
-//     PROJECTS[index] = newProject;
-//     render();
-//     return index
-// }
-
 export default function setView(view) {
     ACTIVE_VIEW = view;
     render();
@@ -25,12 +18,10 @@ export default function setView(view) {
 function setProjectView(projectNo) {
     PROJECT_VIEW = projectNo;
     setView(`PROJECT${PROJECT_VIEW}`);
-    // render();
 }
 
 function render(){
     sortDates();
-    sortTodoDates(activeTodos);
     const content = document.querySelector('.content');
     content.replaceChildren();
 
