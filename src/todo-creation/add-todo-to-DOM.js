@@ -12,6 +12,12 @@ export default function addTodoToDOM(array) {
 
             const cardSelect = document.querySelector('.todoCard.no'+[i+1]);
 
+            let checkmark = document.createElement('img');
+            checkmark.classList.add('todocheckmark');
+            checkmark.setAttribute('id', `todoc${[i+1]}`);
+            checkmark.src = 'checkmark.svg';
+            cardSelect.appendChild(checkmark);
+
             for (let prop in todoList) {
                 let todoElement = document.createElement('div');
                 todoElement.classList.add(`todo${prop}`);
@@ -48,6 +54,12 @@ export function addAllTodosToDOM(array) {
             todoCard.classList.add(`no${[i+1]}`);
 
             const cardSelect = document.querySelector('.todoCard.no'+[i+1]);
+
+            let checkmark = document.createElement('img');
+            checkmark.classList.add('todocheckmark');
+            checkmark.setAttribute('id', `todoc${[i+1]}`);
+            checkmark.src = 'checkmark.svg';
+            cardSelect.appendChild(checkmark);
 
             for (let prop in todoList) {
                 let todoElement = document.createElement('div');

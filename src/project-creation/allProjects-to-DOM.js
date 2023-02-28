@@ -12,6 +12,12 @@ export default function addAllProjectsToDOM(array) {
 
         const projectSelect = document.querySelector('.projectCard.no'+[i+1]);
 
+        let checkmark = document.createElement('img');
+        checkmark.classList.add('projectcheckmark');
+        checkmark.setAttribute('id', `c${[i+1]}`);
+        checkmark.src = 'checkmark.svg';
+        projectSelect.appendChild(checkmark);
+
         for (let prop in projectList) {
             let projectElement = document.createElement('div');
             projectElement.classList.add(`project${prop}`);

@@ -71,6 +71,11 @@ body {
     height: 25px;
 }
 
+.projectcheckmark, .todocheckmark {
+    height: 25px;
+    color: red;
+}
+
 .sidebarEllipsis {
     border: 1px solid black;
     height: 20px;
