@@ -1,4 +1,4 @@
-import { parseISO, isThisWeek } from "date-fns";
+import { parseISO, isThisWeek, differenceInCalendarDays } from "date-fns";
 import { addedProjects } from "../project-creation/new-project";
 import sortTodoDates, { clearActiveTodos, activeTodos } from "../todo-creation/sort-todo-dates";
 import { renderProjectCards, initializeProjectCardFunctionality } from "./general-view";
@@ -10,7 +10,8 @@ let upcomingTodos = [];
 function upcomingProjectsFilter(array) {
     for (let i = 0; i < array.length; i++) {
         let formattedDate = parseISO(array[i].dueDate);
-        if (isThisWeek(formattedDate)) {
+        let todayDate = new Date();
+        if (differenceInCalendarDays(todayDate, formattedDate) <= 14) {
             upcomingProjects.push(array[i])
         } else {
             continue;
@@ -21,7 +22,7 @@ function upcomingProjectsFilter(array) {
 function upcomingTodosFilter(array) {
     for (let i = 0; i < array.length; i++) {
         let formattedDate = parseISO(array[i].dueDate);
-        if (isThisWeek(formattedDate)) {
+        if (differenceInCalendarDays(todayDate, formattedDate) <= 14) {
             upcomingTodos.push(array[i])
         } else {
             continue;
