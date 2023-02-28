@@ -9,6 +9,7 @@ import completedTask from "../shared-creation.js/completed-task";
 
 export default function renderProjectView() {
     renderProjectViewTitle();
+    renderProjectViewDescription();
     renderProjectTodosTitle();
     renderProjectTodos();
     initializeTodoCardFunctionality();
@@ -21,10 +22,20 @@ function renderProjectViewTitle() {
     projectView.classList.add('projectView');
     content.appendChild(projectView);
     const title = document.createElement('h1');
+    title.classList.add('projectViewTitle');
     const titleName = addedProjects[PROJECT_VIEW - 1].title;
     title.textContent = titleName;
     projectView.appendChild(title);
 }
+
+function renderProjectViewDescription() {
+    const projectView = document.querySelector('.projectView');
+    const description = document.createElement('h3');
+    description.classList.add('projectViewDescription');
+    const descriptionDetails = addedProjects[PROJECT_VIEW - 1].description;
+    description.textContent = `${descriptionDetails}`;
+    projectView.appendChild(description);
+}   
 
 function renderProjectTodosTitle() {
     const projectView = document.querySelector('.projectView');
