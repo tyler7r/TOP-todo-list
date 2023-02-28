@@ -11,9 +11,24 @@ export default function expandProjectCard() {
             const projectSelect = document.querySelector(`.projectCard.no${e.target.className.slice(lastChar)}`);
             if (projectSelect.classList.contains('editMode')) {
                 return
-            } else {
-                setProjectView(e.target.className.slice(lastChar));
+            }
+            else {
+                let todoList = document.querySelector(`.todoList.no${e.target.className.slice(lastChar)}`);
+                todoList.classList.toggle('hidden');
             }
         })
     })
 }
+
+function titleClick() {
+    const projectCards = document.querySelectorAll('.projecttitle');
+    projectCards.forEach((title) => {
+        title.addEventListener('click', (e) => {
+            let lastChar = (e.target.className).length - 1;
+            e.stopImmediatePropagation();
+            setProjectView(e.target.className.slice(lastChar));
+        })
+    })
+}
+
+export { titleClick }

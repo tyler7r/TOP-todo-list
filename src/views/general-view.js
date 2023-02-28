@@ -1,5 +1,5 @@
 import addEllipsisFunctionality from '../project-creation/edit-project';
-import expandProjectCard from '../project-creation/expand-project';
+import expandProjectCard, { titleClick } from '../project-creation/expand-project';
 import addAllProjectsToDOM from '../project-creation/allProjects-to-DOM';
 import { addedProjects } from '../project-creation/new-project';
 
@@ -28,6 +28,7 @@ function initializeProjectCardFunctionality() {
 function projectCardFunctionality() {
     addEllipsisFunctionality();
     expandProjectCard();
+    titleClick();
 }
 
 export { renderProjectSection, renderProjectCards, initializeProjectCardFunctionality };

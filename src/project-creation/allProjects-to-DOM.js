@@ -28,12 +28,22 @@ export default function addAllProjectsToDOM(array) {
             } else if (prop === 'description') {
                 projectElement.classList.add(`hidden`);
                 projectElement.textContent += projectList[prop];
-            } 
-            else {
+            } else if (prop === 'todos') {
+                projectElement.textContent = '';
+            } else {
                 projectElement.textContent += projectList[prop];
             }
             projectElement.classList.add(`no${[i+1]}`);
         }
+
+        let todoList = document.createElement('div');
+        todoList.classList.add('todoList');
+        todoList.classList.add(`no${[i+1]}`);
+        todoList.classList.add('hidden');
+        projectSelect.appendChild(todoList);
+        let todos = array[i].todos.length;
+        todoList.textContent = `Todos Remaining: ${todos}`;
+
         let ellipsis = document.createElement('img');
         ellipsis.classList.add('projectellipsis');
         ellipsis.setAttribute('id', `e${[i+1]}`);

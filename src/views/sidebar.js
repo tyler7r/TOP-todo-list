@@ -2,7 +2,7 @@ import addProjectBtn, { initializeNewProjectBtn, addedProjects } from "../projec
 import { addProjectToSidebar } from "../project-creation/newProject-to-DOM.js";
 import { sidebarDeleteFunctionality } from '../project-creation/edit-project.js';
 import createProjectForm from "../project-creation/project-form.js";
-import setView from "../state.js";
+import setView, { ACTIVE_VIEW } from "../state.js";
 import { addAllProjectsToSidebar } from "../project-creation/allProjects-to-DOM.js";
 
 const sidebar = document.querySelector('.sidebar');
@@ -48,6 +48,10 @@ function renderNewProjectBtn() {
     const button = document.createElement('div');
     button.classList.add('sidebarItem');
     button.classList.add('addProject');
-    button.textContent = '+ Add Project';
+    if (ACTIVE_VIEW.includes('PROJECT')) {
+        button.textContent = 'Back to GENERAL'
+    } else {
+        button.textContent = '+ Add Project';
+    }
     sidebar.appendChild(button);
 }
