@@ -5,6 +5,7 @@ import renderTodaySection from "./views/today-view";
 import renderUpcomingSection from "./views/upcoming-view";
 import sortDates from "./project-creation/sort-project-dates";
 import renderProjectView from "./views/project-view";
+import sortTodoDates, { activeTodos } from "./todo-creation/sort-todo-dates";
 
 let ACTIVE_VIEW = 'GENERAL';
 let PROJECT_VIEW;
@@ -29,6 +30,7 @@ function setProjectView(projectNo) {
 
 function render(){
     sortDates();
+    sortTodoDates(activeTodos);
     const content = document.querySelector('.content');
     content.replaceChildren();
 
