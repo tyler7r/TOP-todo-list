@@ -8,7 +8,6 @@ export default function createTodoEditForm(cardNo) {
     if (projectSelect.contains(document.querySelector(`.editForm.no${cardNo}`)) === false) {
         projectSelect.classList.add('editMode');
         let projectInfo = (addedProjects[PROJECT_VIEW-1].todos[cardNo-1]);
-        console.log(projectInfo);
         const editForm = document.createElement('form');
         editForm.setAttribute('method', 'get');
         editForm.classList.add('editForm');

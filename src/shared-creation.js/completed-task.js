@@ -8,7 +8,6 @@ export default function completedTask(taskType) {
             e.stopImmediatePropagation();
             let lastChar = (e.target.id).length - 1;
             const taskNo = (e.target.id.slice(lastChar)) - 1;
-            console.log(e);
             if (taskType === 'todo') {
                 const parent = document.querySelector(`.${e.target.parentElement.className.slice(0,8)}`);
                 check.classList.remove('checkmark-color');
@@ -28,7 +27,6 @@ export default function completedTask(taskType) {
             }
         })
         check.addEventListener('mouseover', (e) => {
-            console.log(e);
             e.stopImmediatePropagation();
             const check = document.querySelector(`#${e.target.id}`);
             check.classList.remove('checkmark-color');
