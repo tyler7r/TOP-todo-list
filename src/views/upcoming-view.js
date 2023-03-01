@@ -22,6 +22,7 @@ function upcomingProjectsFilter(array) {
 function upcomingTodosFilter(array) {
     for (let i = 0; i < array.length; i++) {
         let formattedDate = parseISO(array[i].dueDate);
+        let todayDate = new Date();
         if (differenceInCalendarDays(todayDate, formattedDate) <= 14) {
             upcomingTodos.push(array[i])
         } else {

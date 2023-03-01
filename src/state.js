@@ -46,6 +46,10 @@ function render(){
             break;
     }
 }
+function addProject(array, project) {
+    array.push(project);
+    render();
+}
 
 function removeProject(array, project) {
     array.splice(project, 1);
@@ -57,7 +61,7 @@ function removeTodo(array, todo) {
     render();
 }
 
-export { removeProject, setProjectView, PROJECT_VIEW, ACTIVE_VIEW, removeTodo };
+export { addProject, removeProject, setProjectView, PROJECT_VIEW, ACTIVE_VIEW, removeTodo };
 // update state, rerender after each update, triggers change in view
 
 
