@@ -12,6 +12,7 @@ export default function createEditForm(cardNo) {
     editForm.classList.add('editForm');
     editForm.classList.add(`no${cardNo}`);
     for (let prop in projectInfo) {
+        const value = document.querySelector(`.project${prop}.no${cardNo}`);
         if (prop === 'priority') {
             let div = document.createElement('div');
             div.classList.add('priorityDiv');
@@ -50,6 +51,7 @@ export default function createEditForm(cardNo) {
             date.setAttribute('name', prop);
             date.setAttribute('id', prop);
             date.setAttribute('class', `no${cardNo}`)
+            date.setAttribute('value', value.textContent);
             div.appendChild(date);
         } else if (prop === 'title') {
             let div = document.createElement('div');
@@ -64,6 +66,7 @@ export default function createEditForm(cardNo) {
             input.setAttribute('id', 'projectTitle');
             input.setAttribute('class', `no${cardNo}`)
             input.setAttribute('name', prop);
+            input.setAttribute('value', value.textContent);
             div.appendChild(input);
         } else if (prop === 'todos') {
             continue;
@@ -80,6 +83,7 @@ export default function createEditForm(cardNo) {
             input.setAttribute('name', prop);
             input.setAttribute('id', prop);
             input.setAttribute('class', `no${cardNo}`)
+            input.setAttribute('value', value.textContent);
             div.appendChild(input);
         }
     }

@@ -15,6 +15,7 @@ export default function createTodoEditForm(cardNo) {
         editForm.classList.add(`no${cardNo}`);
         projectSelect.appendChild(editForm);
         for (let prop in projectInfo) {
+            const value = document.querySelector(`.todo${prop}.no${cardNo}`);
             if (prop === 'priority') {
                 let div = document.createElement('div');
                 div.classList.add('todoPriorityDiv');
@@ -53,6 +54,7 @@ export default function createTodoEditForm(cardNo) {
                 date.setAttribute('name', `todo${prop}`);
                 date.setAttribute('id', `todo${prop}`);
                 date.setAttribute('class', `no${cardNo}`)
+                date.setAttribute('value', value.textContent);
                 div.appendChild(date);
             } else if (prop === 'title') {
                 let div = document.createElement('div');
@@ -67,6 +69,7 @@ export default function createTodoEditForm(cardNo) {
                 input.setAttribute('id', 'todoprojectTitle');
                 input.setAttribute('class', `no${cardNo}`)
                 input.setAttribute('name', `todo${prop}`);
+                input.setAttribute('value', value.textContent);
                 div.appendChild(input);
             } else if (prop === 'todos') {
                 continue;
@@ -83,6 +86,7 @@ export default function createTodoEditForm(cardNo) {
                 input.setAttribute('name', `todo${prop}`);
                 input.setAttribute('id', `todo${prop}`);
                 input.setAttribute('class', `no${cardNo}`)
+                input.setAttribute('value', value.textContent);
                 div.appendChild(input);
             }
         }

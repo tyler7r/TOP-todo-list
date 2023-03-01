@@ -45,9 +45,13 @@ function deleteProject() {
     const deleteBtn = document.querySelectorAll('.todoPopupDelete');
     deleteBtn.forEach((button) => {
         button.addEventListener('click', (e) => {
+            const parent = document.querySelector(`.${e.target.parentElement.parentElement.className.slice(0,8)}`);
             let lastChar = (e.target.id).length - 1;
             const projectNo = (e.target.id.slice(lastChar)) - 1;
-            removeTodo(addedProjects[PROJECT_VIEW-1].todos, projectNo);
+            parent.classList.add('removedItem');
+            setTimeout(() => {
+                removeTodo(addedProjects[PROJECT_VIEW-1].todos, projectNo);
+            }, 750)
         })
     })
 }
