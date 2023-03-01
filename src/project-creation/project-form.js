@@ -9,9 +9,23 @@ export default function createProjectForm() {
     projectForm.classList.add('editMode');
     projectFormDiv.appendChild(projectForm);
     const formTitle = document.createElement('div');
-    formTitle.classList.add('.projectFormTitle');
+    formTitle.classList.add('projectFormTitle');
     formTitle.textContent = 'NEW PROJECT';
     projectForm.appendChild(formTitle);
+
+        let titleDiv = document.createElement('div');
+        titleDiv.classList.add('titleDiv');
+        projectForm.appendChild(titleDiv);
+        let title = document.createElement('label');
+        title.setAttribute('for', 'projectTitle');
+        title.textContent = 'Title';
+        titleDiv.appendChild(title);
+        let titleInput = document.createElement('input');
+        titleInput.setAttribute('type', 'text');
+        titleInput.setAttribute('id', 'projectTitle');
+        titleInput.setAttribute('name', 'projectTitle');
+        titleInput.classList.add('main');
+        titleDiv.appendChild(titleInput);
 
         let formPriority = document.createElement('div');
         formPriority.classList.add('formPriority');  
@@ -51,20 +65,6 @@ export default function createProjectForm() {
         date.setAttribute('id', 'dueDate');
         date.classList.add('main');
         dueDateDiv.appendChild(date);
-
-        let titleDiv = document.createElement('div');
-        titleDiv.classList.add('titleDiv');
-        projectForm.appendChild(titleDiv);
-        let title = document.createElement('label');
-        title.setAttribute('for', 'projectTitle');
-        title.textContent = 'Title';
-        titleDiv.appendChild(title);
-        let titleInput = document.createElement('input');
-        titleInput.setAttribute('type', 'text');
-        titleInput.setAttribute('id', 'projectTitle');
-        titleInput.setAttribute('name', 'projectTitle');
-        titleInput.classList.add('main');
-        titleDiv.appendChild(titleInput);
 
         let descriptionDiv = document.createElement('div');
         descriptionDiv.classList.add('descriptionDiv');

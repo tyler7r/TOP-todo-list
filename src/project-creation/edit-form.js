@@ -13,7 +13,7 @@ export default function createEditForm(cardNo) {
     editForm.classList.add(`no${cardNo}`);
 
     const formTitle = document.createElement('div');
-    formTitle.classList.add('.projectFormTitle');
+    formTitle.classList.add('projectFormTitle');
     formTitle.textContent = 'EDIT PROJECT';
     editForm.appendChild(formTitle);
 
@@ -124,6 +124,13 @@ export default function createEditForm(cardNo) {
                 projectNo[i].classList.remove('medium');
                 projectNo[i].classList.remove('high');
                 projectNo[i].classList.add(priority);
+                if (`${priority}` === 'low') {
+                    projectNo[i].textContent = 'L'
+                } else if (`${priority}` === 'medium') {
+                    projectNo[i].textContent = "M"
+                } else if (`${priority}` === 'high'){
+                    projectNo[i].textContent = "H"
+                }
             }
         }
         

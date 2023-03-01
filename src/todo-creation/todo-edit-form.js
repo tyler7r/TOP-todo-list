@@ -14,7 +14,7 @@ export default function createTodoEditForm(cardNo) {
         editForm.classList.add('editForm');
         editForm.classList.add(`no${cardNo}`);
         let formTitle = document.createElement('div');
-        formTitle.classList.add('todoFormTitle');
+        formTitle.classList.add('projectFormTitle');
         formTitle.textContent = 'EDIT TODO';
         editForm.appendChild(formTitle);
         projectSelect.appendChild(editForm);

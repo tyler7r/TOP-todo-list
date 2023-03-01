@@ -29,7 +29,7 @@ body {
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-columns: 2fr 5fr;
+    grid-template-columns: 1fr 6fr;
     grid-template-rows: 1fr 12fr;
 }
 
@@ -64,13 +64,18 @@ body {
     flex-direction: column;
     gap: 4px;
     font-size: 16px;
+    overflow: scroll;
 }
 
-#divider {
+.divider {
     background-color: white;
     padding: 2px;
     border: 1px solid lightgray;
     border-radius: 2px;
+}
+
+.contentDivider {
+    margin: 8px;
 }
 
 .content {
@@ -78,6 +83,11 @@ body {
     grid-column: 2 / 3;
     background-color: azure;
     margin: 0px;
+    overflow: scroll;
+}
+
+.projectTab.no1 {
+    margin-top: 8px;
 }
 
 .addProject {
@@ -85,6 +95,14 @@ body {
     cursor: pointer;
     justify-self: center;
     padding: 4px;
+}
+
+.newTodo {
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 8px;
+    margin-left: 12px;
 }
 
 .addProject:hover {
@@ -112,17 +130,16 @@ body {
     align-items: center;
 }
 
+.projecttitle, .todotitle {
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .tabtitle {
     padding: 2px;
     color: rgb(0, 0, 0, 0.8);
     font-size: 18px;
     cursor: pointer;
-}
-
-.tabtitle:hover {
-    background-color: rgb(240,255,255, 0.8);
-    border: 1px solid lightgray;
-    border-radius: 4px;
 }
 
 .sidebarDelete {
@@ -150,7 +167,7 @@ body {
 }
 
 .completed-checkmark {
-    filter: invert(6%) sepia(97%) saturate(7467%) hue-rotate(2deg) brightness(77%) contrast(98%);
+    filter: invert(31%) sepia(45%) saturate(1615%) hue-rotate(74deg) brightness(97%) contrast(101%);
 }
 
 .projectcheckmark, .todocheckmark {
@@ -176,8 +193,14 @@ body {
 }
 
 .projectSection {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    padding: 8px;
+    gap: 8px;
+    grid-template-columns: min(1fr, 100px);
+}
+
+.todos {
+    display: grid;
     padding: 8px;
     gap: 8px;
 }
@@ -187,6 +210,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 8px;
+    gap: 6px;
     background-color: rgb(245, 245, 220, 0.8);
     border-radius: 4px;
     border: 2px solid rgb(211, 211, 211, 0.6);
@@ -194,24 +218,121 @@ body {
 
 .editMode {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4px;
+    justify-content: center;
+    gap: 6px;
     background-color: beige;
     padding: 8px;
     border-radius: 4px;
     border: 4px double rgb(140, 3, 3, 0.7);
 }
 
+.editForm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+}
+
+.editForm.hidden {
+    display: none;
+}
+
+.popupMenu, .todoPopupMenu {
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-right: 8px;
+    border-radius: 4px;
+    padding: 6px;
+    background-color: rgb(211, 211, 211, 0.6);
+    text-align: center;
+    border: 1px solid rgb(128, 128, 128, 0.6);
+    color: black;
+    transition: color 1s ease;
+}
+
+.todoPopupMenu.hidden, .popupMenu.hidden {
+    display: none;
+}
+
+.todoPopupDelete:hover, .popupDelete:hover, .todoPopupEdit:hover, .popupEdit:hover {
+    cursor: pointer;
+    color: azure;
+}
+
+.titleDiv, .descriptionDiv, .dueDateDiv, .formPriority, .priorityDiv, .todoTitleDiv, .todoDescriptionDiv, .todoDueDateDiv, .todoPriorityDiv {
+    display: flex;
+    gap: 4px;
+}
+
+#submitProject, #submitTodo, .submitProject {
+    grid-column: 1/3;
+    justify-self: center;
+    padding: 4px;
+    border-radius: 4px;
+    border: 2px solid lightgray;
+}
+
+#submitProject:hover, #submitTodo:hover, .submitProject:hover {
+    background-color: rgb(140, 3, 3, 0.9);
+    color: white;
+}
+
+.descriptionDiv, .todoDescriptionDiv {
+    grid-column: 1/3;
+}
+
+#description, #todoDescription, #tododescription {
+    width: 100%;
+}
+
+.projectFormTitle {
+    text-align: center;
+    font-weight: bold;
+}
+
 .projectForm {
     margin: 8px;
 }
 
-.projectSectionTitle {
-    font-size: 24px;
-    font-weight: bold;
-    
+.projectView {
+    margin: 8px;
 }
 
-.projecttitle {
+.projectViewTitle {
+    color: rgb(140, 3, 3);
+    text-align: center;
+    background-color: rgb(211, 211, 211, 0.3);
+    border-radius: 4px;
+    border: 1px solid white;
+    margin: 20px;
+    padding: 4px;
+}
+
+.projectViewDescription {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.projectSectionTitle, .todosTitle {
+    font-size: 24px;
     font-weight: bold;
+}
+
+.todopriority, .projectpriority {
+    font-weight: bold;
+}
+
+.todopriority.high, .projectpriority.high {
+    color: red;
+}
+
+.todopriority.medium, .projectpriority.medium {
+    color: gold;
+}
+
+.todopriority.low, .projectpriority.low {
+    color: green;
 }

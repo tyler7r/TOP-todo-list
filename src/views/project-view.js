@@ -35,13 +35,21 @@ function renderProjectViewDescription() {
     const descriptionDetails = addedProjects[PROJECT_VIEW - 1].description;
     description.textContent = `${descriptionDetails}`;
     projectView.appendChild(description);
+    const divider = document.createElement('div');
+    divider.classList.add('contentDivider');
+    divider.classList.add('divider');
+    divider.textContent = '';
+    projectView.appendChild(divider);
 }   
 
 function renderProjectTodosTitle() {
     const projectView = document.querySelector('.projectView');
     const todos = document.createElement('div');
     todos.classList.add('todos');
-    todos.textContent = 'TODOS';
+    const title = document.createElement('div');
+    title.textContent = 'TODO LIST';
+    title.classList.add('todosTitle');
+    todos.appendChild(title);
     projectView.appendChild(todos);
 }
 
@@ -54,7 +62,7 @@ function renderNewTodoBtn() {
     const projectView = document.querySelector('.projectView');
     let button = document.createElement('div');
     button.classList.add('newTodo');
-    button.textContent = '+ Add Todo'
+    button.textContent = '+ ADD TODO'
     projectView.appendChild(button);
     initializeAddTodoButton()
 }

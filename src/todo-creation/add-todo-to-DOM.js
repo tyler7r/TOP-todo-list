@@ -23,7 +23,13 @@ export default function addTodoToDOM(array) {
                 cardSelect.appendChild(todoElement);
                 if (prop === 'priority') {
                     todoElement.classList.add(`${todoList[prop]}`);
-                    todoElement.textContent = '';
+                    if (`${todoList[prop]}` === 'low') {
+                        todoElement.textContent += 'L'
+                    } else if (`${todoList[prop]}` === 'medium') {
+                        todoElement.textContent += "M"
+                    } else if (`${todoList[prop]}` === 'high'){
+                        todoElement.textContent += "H"
+                    }
                 } else if (prop === 'description') {
                     todoElement.classList.add(`hidden`);
                     todoElement.textContent += todoList[prop];
@@ -67,7 +73,13 @@ export function addAllTodosToDOM(array) {
                 cardSelect.appendChild(todoElement);
                 if (prop === 'priority') {
                     todoElement.classList.add(`${todoList[prop]}`);
-                    todoElement.textContent = '';
+                    if (`${todoList[prop]}` === 'low') {
+                        todoElement.textContent += 'L'
+                    } else if (`${todoList[prop]}` === 'medium') {
+                        todoElement.textContent += "M"
+                    } else if (`${todoList[prop]}` === 'high'){
+                        todoElement.textContent += "H"
+                    }
                 } else if (prop === 'description') {
                     todoElement.classList.add(`hidden`);
                     todoElement.textContent += todoList[prop];

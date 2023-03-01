@@ -11,17 +11,18 @@ export default function addEllipsisFunctionality() {
             let lastChar = (e.target.id).length - 1;
             const projectCard = document.querySelector(`.projectCard.no${e.target.id.slice(lastChar)}`);
             e.stopImmediatePropagation();
-            if (projectCard.contains(document.querySelector(`.popupMenu${e.target.id.slice(lastChar)}`)) === false) {
+            if (projectCard.contains(document.querySelector(`.popupMenu.no${e.target.id.slice(lastChar)}`)) === false) {
                 const popupMenu = document.createElement('div');
-                popupMenu.classList.add(`popupMenu${e.target.id.slice(lastChar)}`); 
+                popupMenu.classList.add(`popupMenu`);
+                popupMenu.classList.add(`no${e.target.id.slice(lastChar)}`) 
                 const deleteBtn = document.createElement('div');
                 deleteBtn.classList.add('popupDelete');
                 deleteBtn.setAttribute('id',`del${e.target.id.slice(lastChar)}`);
-                deleteBtn.textContent = 'Delete';
+                deleteBtn.textContent = 'DELETE';
                 popupMenu.appendChild(deleteBtn);
                 const editBtn = document.createElement('div');
                 editBtn.classList.add('popupEdit');
-                editBtn.textContent = 'Edit';
+                editBtn.textContent = 'EDIT';
                 editBtn.setAttribute('id', `edit${e.target.id.slice(lastChar)}`);
                 popupMenu.appendChild(editBtn);
                 projectCard.appendChild(popupMenu);
@@ -29,11 +30,11 @@ export default function addEllipsisFunctionality() {
                 deleteProject();
                 editProject(e.target.id.slice(lastChar));
             } else if (popUpOpen === true || projectCard.classList.contains(`.editMode`)) {
-                const menuSelect = document.querySelector(`.popupMenu${e.target.id.slice(lastChar)}`);
+                const menuSelect = document.querySelector(`.popupMenu.no${e.target.id.slice(lastChar)}`);
                 menuSelect.classList.add('hidden');
                 popUpOpen = false;
-            } else if (popUpOpen === false && projectCard.contains(document.querySelector(`.popupMenu${e.target.id.slice(lastChar)}`))) {
-                const menuSelect = document.querySelector(`.popupMenu${e.target.id.slice(lastChar)}`);
+            } else if (popUpOpen === false && projectCard.contains(document.querySelector(`.popupMenu.no${e.target.id.slice(lastChar)}`))) {
+                const menuSelect = document.querySelector(`.popupMenu.no${e.target.id.slice(lastChar)}`);
                 menuSelect.classList.remove('hidden');
                 popUpOpen = true;
             }
@@ -88,7 +89,7 @@ function editProject(cardNo) {
             let lastChar = (e.target.id).length - 1;
             const projectSelect = document.querySelector(`.projectCard.no${e.target.id.slice(lastChar)}`);
             e.stopImmediatePropagation();
-            const popupMenu = document.querySelector(`.popupMenu${cardNo}`)
+            const popupMenu = document.querySelector(`.popupMenu.no${cardNo}`)
             popupMenu.classList.add('hidden');
             projectSelect.classList.add('editMode');
             hideDetails('project', cardNo);

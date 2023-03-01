@@ -34,9 +34,17 @@ export default function renderTodaySection() {
     renderProjectCards(todayprojects);
     initializeProjectCardFunctionality();
     const content = document.querySelector('.content');
+    const divider = document.createElement('div');
+    divider.setAttribute('class', 'divider');
+    divider.classList.add('contentDivider');
+    divider.textContent = '';
+    content.appendChild(divider);
     const todoSection = document.createElement('div');
     todoSection.classList.add('todos');
-    todoSection.textContent = 'TODOS';
+    const title = document.createElement('div');
+    title.classList.add('todosTitle');
+    title.textContent = 'TODOS';
+    todoSection.appendChild(title);
     content.appendChild(todoSection);
     sortTodoDates(addedProjects);
     todayTodoFilter(activeTodos);

@@ -37,7 +37,7 @@ function renderSidebarProjectListTitle() {
     sidebar.appendChild(divider);
     divider.textContent = ' ';
     divider.classList.add('sidebarItem');
-    divider.setAttribute('id', 'divider');
+    divider.setAttribute('class', 'divider');
     const title = document.createElement('div');
     title.classList.add('projects');
     title.classList.add('sidebarItem');

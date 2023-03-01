@@ -25,11 +25,18 @@ export default function addAllProjectsToDOM(array) {
             projectSelect.appendChild(projectElement);
             if (prop === 'priority') {
                 projectElement.classList.add(`${projectList[prop]}`);
-                projectElement.textContent = '';
+                if (`${projectList[prop]}` === 'low') {
+                    projectElement.textContent = 'L'
+                } else if (`${projectList[prop]}` === 'medium') {
+                    projectElement.textContent = "M"
+                } else if (`${projectList[prop]}` === 'high'){
+                    projectElement.textContent = "H"
+                }
             } else if (prop === 'description') {
                 projectElement.classList.add(`hidden`);
                 projectElement.textContent += projectList[prop];
             } else if (prop === 'todos') {
+                projectElement.classList.add('hidden');
                 projectElement.textContent = '';
             } else {
                 projectElement.textContent += projectList[prop];

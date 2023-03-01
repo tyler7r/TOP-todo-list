@@ -7,11 +7,26 @@ export default function createTodoForm() {
     const todoForm = document.createElement('form');
     todoForm.setAttribute('method', 'get');
     todoForm.classList.add('editMode');
+    todoForm.classList.add('todoEditForm')
     todoFormDiv.appendChild(todoForm);
     let formTitle = document.createElement('div');
-    formTitle.classList.add('todoFormTitle');
+    formTitle.classList.add('projectFormTitle');
     formTitle.textContent = 'NEW TODO';
     todoForm.appendChild(formTitle);
+
+        let titleDiv = document.createElement('div');
+        titleDiv.classList.add('titleDiv');
+        todoForm.appendChild(titleDiv);
+        let title = document.createElement('label');
+        title.setAttribute('for', 'todoTitle');
+        title.textContent = 'Title';
+        titleDiv.appendChild(title);
+        let titleInput = document.createElement('input');
+        titleInput.setAttribute('type', 'text');
+        titleInput.setAttribute('id', 'todoTitle');
+        titleInput.setAttribute('name', 'todoTitle');
+        titleInput.classList.add('main');
+        titleDiv.appendChild(titleInput);
 
         let formPriority = document.createElement('div');
         formPriority.classList.add('formPriority');  
@@ -51,20 +66,6 @@ export default function createTodoForm() {
         date.setAttribute('id', 'todoDueDate');
         date.classList.add('main');
         dueDateDiv.appendChild(date);
-
-        let titleDiv = document.createElement('div');
-        titleDiv.classList.add('titleDiv');
-        todoForm.appendChild(titleDiv);
-        let title = document.createElement('label');
-        title.setAttribute('for', 'todoTitle');
-        title.textContent = 'Title';
-        titleDiv.appendChild(title);
-        let titleInput = document.createElement('input');
-        titleInput.setAttribute('type', 'text');
-        titleInput.setAttribute('id', 'todoTitle');
-        titleInput.setAttribute('name', 'todoTitle');
-        titleInput.classList.add('main');
-        titleDiv.appendChild(titleInput);
 
         let descriptionDiv = document.createElement('div');
         descriptionDiv.classList.add('descriptionDiv');
