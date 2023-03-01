@@ -1,4 +1,4 @@
-import { setProjectView } from "../state";
+import { setProjectView } from "../src/state";
 
 export default function addProjectToContent(array) {
     const projectSection = document.querySelector('.projectSection');

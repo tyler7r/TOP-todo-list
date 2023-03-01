@@ -1,6 +1,6 @@
 const projectForm = document.querySelector('.projectForm');
 
-import addProjectToContent, { addProjectToSidebar } from './newProject-to-DOM.js';
+import addProjectToContent, { addProjectToSidebar } from '../../removed/newProject-to-DOM.js';
 import addEllipsisFunctionality, { sidebarDeleteFunctionality } from './edit-project.js';
 import expandProjectCard, { titleClick } from './expand-project.js';
 import setView, { ACTIVE_VIEW, addProject } from '../state';

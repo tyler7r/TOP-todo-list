@@ -1,5 +1,5 @@
 import { addedProjects } from "./new-project";
-import addProjectToContent, { addProjectToSidebar} from "./newProject-to-DOM";
+import addProjectToContent, { addProjectToSidebar} from "../../removed/newProject-to-DOM";
 import createEditForm from "./edit-form.js";
 import hideDetails from "./details-toggle.js";
 import setView, { removeProject, ACTIVE_VIEW } from "../state";
