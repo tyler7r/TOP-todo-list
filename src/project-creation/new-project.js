@@ -2,6 +2,12 @@ import setView, { ACTIVE_VIEW, addProject } from '../state';
 
 let addedProjects = [];
 
+export function pullFromStorage() {
+    console.log(addedProjects);
+    addedProjects = JSON.parse(localStorage.getItem('masterList'));
+    console.log(addedProjects);
+}
+
 export default function addProjectBtn() {
     let addProjectBtn = document.querySelector('.addProject');
     const projectForm = document.querySelector('.projectForm');

@@ -1,5 +1,5 @@
 import { addedProjects } from "../project-creation/new-project";
-import { PROJECT_VIEW } from "../state";
+import { PROJECT_VIEW, setProjectView } from "../state";
 import addTodoToDOM from "./add-todo-to-DOM";
 import { clearFormEntry } from "../project-creation/new-project";
 import addTodoEllipsisFunctionality from "./edit-todo";

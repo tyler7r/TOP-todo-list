@@ -4,6 +4,7 @@ import renderTodaySection from "./views/today-view";
 import renderUpcomingSection from "./views/upcoming-view";
 import sortDates from "./project-creation/sort-project-dates";
 import renderProjectView from "./views/project-view";
+import { addedProjects } from "./project-creation/new-project.js";
 
 let ACTIVE_VIEW = 'GENERAL';
 let PROJECT_VIEW;
@@ -19,6 +20,8 @@ function setProjectView(projectNo) {
 }
 
 function render(){
+    localStorage.setItem('masterList', JSON.stringify(addedProjects));
+
     sortDates();
     const content = document.querySelector('.content');
     content.replaceChildren();
@@ -48,6 +51,11 @@ function addProject(array, project) {
     array.push(project);
     render();
 }
+
+// function addTodo(array, todo) {
+//     array.push(todo);
+//     render();
+// }
 
 function removeProject(array, project) {
     array.splice(project, 1);
