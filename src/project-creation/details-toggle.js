@@ -8,6 +8,8 @@ export default function hideDetails(cardType, cardNo) {
     dueDate.classList.add('hidden');
     const ellipsis = projectSelect.querySelector(`.${cardType}ellipsis`);
     ellipsis.classList.add('hidden')
+    const checkmark = projectSelect.querySelector(`.${cardType}checkmark`);
+    checkmark.classList.add('hidden');
 }
 
 export function revealDetails(cardType, cardNo) {
@@ -20,4 +22,6 @@ export function revealDetails(cardType, cardNo) {
     dueDate.classList.remove('hidden');
     const ellipsis = projectSelect.querySelector(`.${cardType}ellipsis`);
     ellipsis.classList.remove('hidden');
+    const checkmark = projectSelect.querySelector(`.${cardType}checkmark`);
+    checkmark.classList.remove('hidden');
 }

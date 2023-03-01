@@ -8,6 +8,10 @@ export default function createProjectForm() {
     projectForm.setAttribute('method', 'get');
     projectForm.classList.add('editMode');
     projectFormDiv.appendChild(projectForm);
+    const formTitle = document.createElement('div');
+    formTitle.classList.add('.projectFormTitle');
+    formTitle.textContent = 'NEW PROJECT';
+    projectForm.appendChild(formTitle);
 
         let formPriority = document.createElement('div');
         formPriority.classList.add('formPriority');  

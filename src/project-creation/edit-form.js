@@ -11,6 +11,12 @@ export default function createEditForm(cardNo) {
     editForm.setAttribute('method', 'get');
     editForm.classList.add('editForm');
     editForm.classList.add(`no${cardNo}`);
+
+    const formTitle = document.createElement('div');
+    formTitle.classList.add('.projectFormTitle');
+    formTitle.textContent = 'EDIT PROJECT';
+    editForm.appendChild(formTitle);
+
     for (let prop in projectInfo) {
         const value = document.querySelector(`.project${prop}.no${cardNo}`);
         if (prop === 'priority') {
@@ -93,7 +99,7 @@ export default function createEditForm(cardNo) {
     submitEdit.textContent = 'Done';
     submitEdit.addEventListener('click', (e) => {
         e.preventDefault();
-        const title = document.querySelector(`#projectTitle.no${cardNo}`).value;
+        const title = document.querySelector(`#projectTitle.no${cardNo}`).value.toUpperCase();
         const description = document.querySelector(`#description.no${cardNo}`).value;
         const dueDate = document.querySelector(`#dueDate.no${cardNo}`).value;
         const priority = document.querySelector(`#priority.no${cardNo}`).value;

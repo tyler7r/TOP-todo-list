@@ -17,7 +17,7 @@ function renderProjectCards(array) {
     projectSectionTitle.classList.add('projectSectionTitle');
     projectSectionTitle.textContent = 'PROJECTS'
     projectSection.appendChild(projectSectionTitle);
-    content.appendChild(projectSection);
+    content.prepend(projectSection);
     addAllProjectsToDOM(array);
 }
 

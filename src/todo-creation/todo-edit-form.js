@@ -13,6 +13,10 @@ export default function createTodoEditForm(cardNo) {
         editForm.setAttribute('method', 'get');
         editForm.classList.add('editForm');
         editForm.classList.add(`no${cardNo}`);
+        let formTitle = document.createElement('div');
+        formTitle.classList.add('todoFormTitle');
+        formTitle.textContent = 'EDIT TODO';
+        editForm.appendChild(formTitle);
         projectSelect.appendChild(editForm);
         for (let prop in projectInfo) {
             const value = document.querySelector(`.todo${prop}.no${cardNo}`);
@@ -97,7 +101,7 @@ export default function createTodoEditForm(cardNo) {
         submitEdit.textContent = 'Done';
         submitEdit.addEventListener('click', (e) => {
             e.preventDefault();
-            const title = document.querySelector(`#todoprojectTitle.no${cardNo}`).value;
+            const title = document.querySelector(`#todoprojectTitle.no${cardNo}`).value.toUpperCase();
             const description = document.querySelector(`#tododescription.no${cardNo}`).value;
             const dueDate = document.querySelector(`#tododueDate.no${cardNo}`).value;
             const priority = document.querySelector(`#todopriority.no${cardNo}`).value;

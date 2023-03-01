@@ -35,7 +35,7 @@ export function initializeNewProjectBtn() {
 }
 
 function newProjectInfo() {
-    const title = document.querySelector('#projectTitle.main').value;
+    const title = document.querySelector('#projectTitle.main').value.toUpperCase();
     const description = document.querySelector('#description.main').value;
     const dueDate = document.querySelector('#dueDate.main').value;
     const priority = document.querySelector('#priority.main').value;

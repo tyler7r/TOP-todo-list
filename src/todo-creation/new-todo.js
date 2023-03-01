@@ -31,7 +31,7 @@ function submitTodoBtn() {
 }
 
 function newTodoInfo() {
-    const title = document.querySelector(`#todoTitle.main`).value;
+    const title = document.querySelector(`#todoTitle.main`).value.toUpperCase();
     const description = document.querySelector(`#todoDescription.main`).value;
     const dueDate = document.querySelector(`#todoDueDate.main`).value;
     const priority = document.querySelector(`#todoPriority.main`).value;

@@ -8,6 +8,10 @@ export default function createTodoForm() {
     todoForm.setAttribute('method', 'get');
     todoForm.classList.add('editMode');
     todoFormDiv.appendChild(todoForm);
+    let formTitle = document.createElement('div');
+    formTitle.classList.add('todoFormTitle');
+    formTitle.textContent = 'NEW TODO';
+    todoForm.appendChild(formTitle);
 
         let formPriority = document.createElement('div');
         formPriority.classList.add('formPriority');  

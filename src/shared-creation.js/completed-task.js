@@ -2,7 +2,7 @@ import { removeProject, removeTodo, PROJECT_VIEW } from "../state";
 import { addedProjects } from "../project-creation/new-project";
 
 export default function completedTask(taskType) {
-    let checkmarks = document.querySelectorAll(`.${taskType}checkmark`);
+    const checkmarks = document.querySelectorAll(`.${taskType}checkmark`);
     checkmarks.forEach((check) => {
         check.addEventListener('click', (e) => {
             e.stopImmediatePropagation();
@@ -26,6 +26,19 @@ export default function completedTask(taskType) {
                     removeProject(addedProjects, taskNo);
                 }, 750);
             }
+        })
+        check.addEventListener('mouseover', (e) => {
+            console.log(e);
+            e.stopImmediatePropagation();
+            const check = document.querySelector(`#${e.target.id}`);
+            check.classList.remove('checkmark-color');
+            check.classList.add('completed-checkmark');
+        })
+        check.addEventListener('mouseout', (e) => {
+            e.stopImmediatePropagation();
+            const check = document.querySelector(`#${e.target.id}`);
+            check.classList.add('checkmark-color');
+            check.classList.remove('completed-checkmark');
         })
     })
 }

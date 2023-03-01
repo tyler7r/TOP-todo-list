@@ -22,6 +22,7 @@ function renderViewButtons(views) {
     views.forEach((viewName) => {
         const button = document.createElement('div');
         button.classList.add("sidebarItem");
+        button.classList.add('viewButton');
         button.setAttribute('id', viewName);
         button.textContent = viewName;
         sidebar.appendChild(button);
@@ -32,10 +33,15 @@ function renderViewButtons(views) {
 }
 
 function renderSidebarProjectListTitle() {
+    const divider = document.createElement('div');
+    sidebar.appendChild(divider);
+    divider.textContent = ' ';
+    divider.classList.add('sidebarItem');
+    divider.setAttribute('id', 'divider');
     const title = document.createElement('div');
     title.classList.add('projects');
     title.classList.add('sidebarItem');
-    title.textContent = 'Projects';
+    title.textContent = 'PROJECT LIST';
     sidebar.appendChild(title);
 }
 
@@ -50,7 +56,7 @@ function renderNewProjectBtn() {
     if (ACTIVE_VIEW.includes('PROJECT')) {
         button.textContent = 'Back to GENERAL'
     } else {
-        button.textContent = '+ Add Project';
+        button.textContent = '+ ADD PROJECT';
     }
     sidebar.appendChild(button);
 }

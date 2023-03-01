@@ -60,11 +60,23 @@ function sidebarDeleteFunctionality() {
     const sidebarDeleteBtn = document.querySelectorAll('.sidebarDelete');
     sidebarDeleteBtn.forEach((icon) => {
         icon.addEventListener('click' , (e) => {
-            let lastChar = (e.target.id).length - 1;
+            const lastChar = (e.target.id).length - 1;
             e.stopImmediatePropagation();
             const projectNo = (e.target.id.slice(lastChar)) - 1;
             setView('GENERAL')
             removeProject(addedProjects, projectNo);
+        })
+    })
+    sidebarDeleteBtn.forEach((icon) => {
+        icon.addEventListener('mouseover', (e) => {
+            e.stopImmediatePropagation();
+            let deleteBtn = document.querySelector(`#${e.target.id}`);
+            deleteBtn.classList.add('hovered');
+        })
+        icon.addEventListener('mouseout', (e) => {
+            e.stopImmediatePropagation();
+            let deleteBtn = document.querySelector(`#${e.target.id}`);
+            deleteBtn.classList.remove('hovered');
         })
     })
 }

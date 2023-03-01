@@ -1,7 +1,12 @@
 body {
     margin: 0px;
     padding: 0px;
+    cursor: default;
 }
+
+ button {
+    cursor: pointer;
+ }
 
 @keyframes deleteItem {
     0%{
@@ -24,7 +29,7 @@ body {
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 2fr 5fr;
     grid-template-rows: 1fr 12fr;
 }
 
@@ -32,7 +37,7 @@ body {
     grid-row: 1 / 2;
     grid-column: 1 / 3;
     background-color: rgb(140, 3, 3, 0.9);
-    color: azure;
+    color: beige;
     font-size: 48px;
     font-weight: bold;
     padding: 8px;
@@ -43,7 +48,6 @@ body {
     grid-column: 1 / 2;
     background-color: beige;
     padding: 8px;
-    padding-top: 24px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -53,12 +57,20 @@ body {
     font-size: 20px;
     font-weight: bold;
     color:rgb(140, 3, 3, 0.9);
-    padding-bottom: 8px;
 }
 
-#UPCOMING {
-    border-bottom: 4px solid white;
-    border-radius: 4px;
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 16px;
+}
+
+#divider {
+    background-color: white;
+    padding: 2px;
+    border: 1px solid lightgray;
+    border-radius: 2px;
 }
 
 .content {
@@ -69,19 +81,63 @@ body {
 }
 
 .addProject {
-    display: flex;
-    gap: 8px;
-    font-size: 16px;
+    font-size: 12px;
+    cursor: pointer;
+    justify-self: center;
+    padding: 4px;
 }
 
 .addProject:hover {
     background-color: rgb(240,255,255, 0.8);
-    padding: 4px;
+    border: 1px solid lightgray;
     border-radius: 4px;
+}
+
+.viewButton {
+    transition: background 0.35s ease;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.viewButton:hover {
+    background-color: rgb(240,255,255, 0.8);
+    border: 1px solid lightgray;
+    border-radius: 4px;
+}
+
+.projectTab {
+    display: flex;
+    gap: 16px;
+    margin-left: 4px;
+    align-items: center;
+}
+
+.tabtitle {
+    padding: 2px;
+    color: rgb(0, 0, 0, 0.8);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.tabtitle:hover {
+    background-color: rgb(240,255,255, 0.8);
+    border: 1px solid lightgray;
+    border-radius: 4px;
+}
+
+.sidebarDelete {
+    height: 18px;
+    filter: invert(69%) sepia(83%) saturate(1%) hue-rotate(335deg) brightness(101%) contrast(102%);
+}
+
+.hovered {
+    cursor: pointer;
+    filter: invert(6%) sepia(97%) saturate(7467%) hue-rotate(2deg) brightness(77%) contrast(98%);
 }
 
 .projectellipsis, .todoellipsis {
     height: 25px;
+    cursor: pointer;
 }
 
 .removedItem {
@@ -99,7 +155,18 @@ body {
 
 .projectcheckmark, .todocheckmark {
     height: 25px;
-    color: red;
+    cursor: pointer;
+}
+
+.projecttitle {
+    cursor: pointer;
+    padding: 2px;
+}
+
+.projecttitle:hover {
+    background-color: rgb(240,255,255, 0.8);
+    border: 1px solid lightgray;
+    border-radius: 4px;
 }
 
 .sidebarEllipsis {
@@ -122,17 +189,29 @@ body {
     padding: 8px;
     background-color: rgb(245, 245, 220, 0.8);
     border-radius: 4px;
-    border: 1px solid rgb(211, 211, 211, 0.6);
+    border: 2px solid rgb(211, 211, 211, 0.6);
 }
 
 .editMode {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 4px;
-    border: 1px solid red;
+    background-color: beige;
+    padding: 8px;
+    border-radius: 4px;
+    border: 4px double rgb(140, 3, 3, 0.7);
+}
+
+.projectForm {
+    margin: 8px;
+}
+
+.projectSectionTitle {
+    font-size: 24px;
+    font-weight: bold;
+    
 }
 
 .projecttitle {
     font-weight: bold;
-    font-size: 22px;
 }
