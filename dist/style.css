@@ -3,6 +3,19 @@ body {
     padding: 0px;
 }
 
+@keyframes deleteItem {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+    }
+}
+
 .hidden {
     display: none;
 }
@@ -69,6 +82,19 @@ body {
 
 .projectellipsis, .todoellipsis {
     height: 25px;
+}
+
+.removedItem {
+    animation-name: deleteItem;
+    animation-duration: 750ms;
+}
+
+.checkmark-color {
+    filter: invert(95%) sepia(0%) saturate(0%) hue-rotate(171deg) brightness(91%) contrast(91%);
+}
+
+.completed-checkmark {
+    filter: invert(6%) sepia(97%) saturate(7467%) hue-rotate(2deg) brightness(77%) contrast(98%);
 }
 
 .projectcheckmark, .todocheckmark {

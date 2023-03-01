@@ -15,6 +15,7 @@ export default function addAllProjectsToDOM(array) {
         let checkmark = document.createElement('img');
         checkmark.classList.add('projectcheckmark');
         checkmark.setAttribute('id', `c${[i+1]}`);
+        checkmark.classList.add('checkmark-color');
         checkmark.src = 'checkmark.svg';
         projectSelect.appendChild(checkmark);
 

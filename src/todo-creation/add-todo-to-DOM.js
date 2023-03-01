@@ -13,6 +13,7 @@ export default function addTodoToDOM(array) {
             let checkmark = document.createElement('img');
             checkmark.classList.add('todocheckmark');
             checkmark.setAttribute('id', `todoc${[i+1]}`);
+            checkmark.classList.add('checkmark-color');
             checkmark.src = 'checkmark.svg';
             cardSelect.appendChild(checkmark);
 
@@ -56,6 +57,7 @@ export function addAllTodosToDOM(array) {
             let checkmark = document.createElement('img');
             checkmark.classList.add('todocheckmark');
             checkmark.setAttribute('id', `todoc${[i+1]}`);
+            checkmark.classList.add('checkmark-color');
             checkmark.src = 'checkmark.svg';
             cardSelect.appendChild(checkmark);
 

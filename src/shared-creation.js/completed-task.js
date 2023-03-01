@@ -8,10 +8,23 @@ export default function completedTask(taskType) {
             e.stopImmediatePropagation();
             let lastChar = (e.target.id).length - 1;
             const taskNo = (e.target.id.slice(lastChar)) - 1;
+            console.log(e);
             if (taskType === 'todo') {
-                removeTodo(addedProjects[PROJECT_VIEW-1].todos, taskNo);
+                const parent = document.querySelector(`.${e.target.parentElement.className.slice(0,8)}`);
+                check.classList.remove('checkmark-color');
+                check.classList.add('completed-checkmark');
+                parent.classList.add('removedItem');
+                setTimeout(() => {
+                    removeTodo(addedProjects[PROJECT_VIEW-1].todos, taskNo);
+                }, 750);
             } else if (taskType === 'project') {
-                removeProject(addedProjects, taskNo);
+                const parent = document.querySelector(`.${e.target.parentElement.className.slice(0,11)}`);
+                check.classList.remove('checkmark-color');
+                check.classList.add('completed-checkmark');
+                parent.classList.add('removedItem');
+                setTimeout(() => {
+                    removeProject(addedProjects, taskNo);
+                }, 750);
             }
         })
     })
