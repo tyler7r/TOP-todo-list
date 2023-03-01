@@ -1,5 +1,3 @@
-import { addedProjects } from "../project-creation/new-project";
-// array is the todos array from project object
 export default function addTodoToDOM(array) {
     const projectView = document.querySelector('.todos');
     if (array.length > 0) {

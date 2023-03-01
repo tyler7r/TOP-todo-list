@@ -1,10 +1,4 @@
-const projectForm = document.querySelector('.projectForm');
-
-import addProjectToContent, { addProjectToSidebar } from '../../removed/newProject-to-DOM.js';
-import addEllipsisFunctionality, { sidebarDeleteFunctionality } from './edit-project.js';
-import expandProjectCard, { titleClick } from './expand-project.js';
 import setView, { ACTIVE_VIEW, addProject } from '../state';
-import completedTask from '../shared-creation.js/completed-task.js';
 
 let addedProjects = [];
 
@@ -37,13 +31,6 @@ export function initializeNewProjectBtn() {
         newProjectInfo();
         projectForm.classList.add('hidden');
         clearFormEntry('priority');
-        // addProjectToContent(addedProjects);
-        // addProjectToSidebar(addedProjects);
-        // addEllipsisFunctionality();
-        // sidebarDeleteFunctionality();
-        // expandProjectCard();
-        // titleClick();
-        // completedTask('project');
     })
 }
 
@@ -53,7 +40,6 @@ function newProjectInfo() {
     const dueDate = document.querySelector('#dueDate.main').value;
     const priority = document.querySelector('#priority.main').value;
     let newProject = new Project(title, description, dueDate, priority, []);
-    // addedProjects.push(newProject);
     addProject(addedProjects, newProject);
 }
 

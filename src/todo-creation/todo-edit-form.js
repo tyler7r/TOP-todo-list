@@ -1,5 +1,4 @@
-import { addedProjects, Project } from '../project-creation/new-project';
-
+import { addedProjects } from '../project-creation/new-project';
 import { revealDetails } from '../project-creation/details-toggle';
 import setView, { PROJECT_VIEW }from '../state';
 import { Todo } from './new-todo';

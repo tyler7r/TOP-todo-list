@@ -1,5 +1,3 @@
-import { Todo } from "./new-todo";
-
 export default function createTodoForm() {
     const projectView = document.querySelector('.projectView');
     const todoFormDiv = document.createElement('div');

@@ -1,5 +1,4 @@
 import addProjectBtn, { initializeNewProjectBtn, addedProjects } from "../project-creation/new-project.js";
-import { addProjectToSidebar } from "../../removed/newProject-to-DOM.js";
 import { sidebarDeleteFunctionality } from '../project-creation/edit-project.js';
 import createProjectForm from "../project-creation/project-form.js";
 import setView, { ACTIVE_VIEW } from "../state.js";

@@ -1,11 +1,9 @@
-import { addedProjects } from "./project-creation/new-project";
 import { renderProjectSection } from "./views/general-view.js"; 
 import renderSidebar from './views/sidebar.js'
 import renderTodaySection from "./views/today-view";
 import renderUpcomingSection from "./views/upcoming-view";
 import sortDates from "./project-creation/sort-project-dates";
 import renderProjectView from "./views/project-view";
-import sortTodoDates, { activeTodos } from "./todo-creation/sort-todo-dates";
 
 let ACTIVE_VIEW = 'GENERAL';
 let PROJECT_VIEW;
@@ -62,12 +60,6 @@ function removeTodo(array, todo) {
 }
 
 export { addProject, removeProject, setProjectView, PROJECT_VIEW, ACTIVE_VIEW, removeTodo };
-// update state, rerender after each update, triggers change in view
-
-
-
-
-// update view based on state
 
 
 
