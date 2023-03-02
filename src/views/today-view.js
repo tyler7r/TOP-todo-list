@@ -1,8 +1,9 @@
 import { isToday, parseISO } from "date-fns";
-import { addedProjects } from "../project-creation/new-project";
+import addProjectBtn, { addedProjects } from "../project-creation/new-project";
 import { renderProjectCards, initializeProjectCardFunctionality } from "./general-view";
 import sortTodoDates, { activeTodos, clearActiveTodos } from "../todo-creation/sort-todo-dates";
 import { initializeTodoCardFunctionality, renderProjectTodos } from "./project-view";
+import { renderNewContentProjectBtn } from "./general-view";
 
 let todayprojects = [];
 let todaytodos = [];
@@ -34,6 +35,8 @@ export default function renderTodaySection() {
     renderProjectCards(todayprojects);
     initializeProjectCardFunctionality();
     const content = document.querySelector('.content');
+    renderNewContentProjectBtn();
+    addProjectBtn();
     const divider = document.createElement('div');
     divider.setAttribute('class', 'divider');
     divider.classList.add('contentDivider');
@@ -43,7 +46,7 @@ export default function renderTodaySection() {
     todoSection.classList.add('todos');
     const title = document.createElement('div');
     title.classList.add('todosTitle');
-    title.textContent = 'TODOS';
+    title.textContent = 'TO-DOS';
     todoSection.appendChild(title);
     content.appendChild(todoSection);
     sortTodoDates(addedProjects);
@@ -54,3 +57,4 @@ export default function renderTodaySection() {
     todayprojects = [];
     clearActiveTodos();
 }
+

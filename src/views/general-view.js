@@ -1,12 +1,15 @@
 import addEllipsisFunctionality from '../project-creation/edit-project';
 import expandProjectCard, { titleClick } from '../project-creation/expand-project';
 import addAllProjectsToDOM from '../project-creation/allProjects-to-DOM';
-import { addedProjects } from '../project-creation/new-project';
+import addProjectBtn, { addedProjects } from '../project-creation/new-project';
 import completedTask from '../shared-creation.js/completed-task';
+import { ACTIVE_VIEW } from '../state';
 
 function renderProjectSection() {
     renderProjectCards(addedProjects);
     initializeProjectCardFunctionality();
+    renderNewContentProjectBtn();
+    addProjectBtn();
 }
 
 function renderProjectCards(array) {
@@ -35,6 +38,19 @@ function projectCardFunctionality() {
     expandProjectCard();
     titleClick();
     completedTask('project');
+}
+
+export function renderNewContentProjectBtn() {
+    const content = document.querySelector('.content');
+    const button = document.createElement('div');
+    button.classList.add('generalAddProject');
+    button.classList.add('addProject');
+    if (ACTIVE_VIEW.includes('PROJECT')) {
+        button.textContent = 'Back to GENERAL'
+    } else {
+        button.textContent = '+ ADD PROJECT';
+    }
+    content.appendChild(button);
 }
 
 export { renderProjectSection, renderProjectCards, initializeProjectCardFunctionality };

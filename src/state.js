@@ -30,6 +30,28 @@ function render(){
     sidebar.replaceChildren();
     renderSidebar();
 
+    const viewButtons = document.querySelectorAll('.viewButton');
+    viewButtons.forEach((button) => {
+        if (ACTIVE_VIEW === button.textContent) {
+            button.classList.add('buttonClicked');
+        } else if (ACTIVE_VIEW !== button.textContent) {
+            button.classList.remove('buttonClicked');
+        }
+    })
+
+    const projectTabs = document.querySelectorAll('.tabtitle.projecttitle');
+    projectTabs.forEach((tab) => {
+        let lastTabChar = tab.className.length - 1;
+        let tabNo = tab.className.slice(lastTabChar);
+        let lastViewChar = ACTIVE_VIEW.length - 1;
+        let viewNo = ACTIVE_VIEW.slice(lastViewChar);
+        if (viewNo === tabNo) {
+            tab.classList.add('buttonClicked')
+        } else if (viewNo !== tabNo) {
+            tab.classList.remove('buttonClicked');
+        }
+    })
+
     switch (ACTIVE_VIEW) {
         case 'GENERAL':
             renderProjectSection();

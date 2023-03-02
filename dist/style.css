@@ -51,6 +51,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    padding-right: 16px;
 }
 
 .sidebarItem {
@@ -76,6 +77,8 @@ body {
 
 .contentDivider {
     margin: 8px;
+    width: 400px;
+    align-self: center;
 }
 
 .content {
@@ -84,6 +87,8 @@ body {
     background-color: azure;
     margin: 0px;
     overflow: scroll;
+    display: flex;
+    flex-direction: column;
 }
 
 .projectTab.no1 {
@@ -95,6 +100,13 @@ body {
     cursor: pointer;
     justify-self: center;
     padding: 4px;
+    color:rgb(140, 3, 3);
+    font-weight: bold;
+}
+
+.generalAddProject {
+    margin-left: 8px;
+    width: 100px;
 }
 
 .newTodo {
@@ -118,6 +130,12 @@ body {
 }
 
 .viewButton:hover {
+    background-color: rgb(240,255,255, 0.8);
+    border: 1px solid lightgray;
+    border-radius: 4px;
+}
+
+.buttonClicked {
     background-color: rgb(240,255,255, 0.8);
     border: 1px solid lightgray;
     border-radius: 4px;

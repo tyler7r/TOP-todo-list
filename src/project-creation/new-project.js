@@ -9,15 +9,22 @@ export function pullFromStorage() {
 }
 
 export default function addProjectBtn() {
-    let addProjectBtn = document.querySelector('.addProject');
+    let addProjectBtn = document.querySelectorAll('.addProject');
     const projectForm = document.querySelector('.projectForm');
-    addProjectBtn.addEventListener('click', () => {
-        if (`${ACTIVE_VIEW}`.includes('PROJECT')) {
-            setView('GENERAL');
-            projectForm.classList.remove('hidden');
-        } else {
-        projectForm.classList.remove('hidden');
-        }
+    addProjectBtn.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.stopImmediatePropagation();
+            if (projectForm.classList.contains('hidden') === true) {
+                if (`${ACTIVE_VIEW}`.includes('PROJECT')) {
+                    setView('GENERAL');
+                    projectForm.classList.remove('hidden');
+                } else {
+                    projectForm.classList.remove('hidden');
+                }
+            } else {
+                return
+            }
+        })
     })
 }
 

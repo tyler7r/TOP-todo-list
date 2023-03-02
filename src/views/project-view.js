@@ -47,7 +47,7 @@ function renderProjectTodosTitle() {
     const todos = document.createElement('div');
     todos.classList.add('todos');
     const title = document.createElement('div');
-    title.textContent = 'TODO LIST';
+    title.textContent = 'TO-DO LIST';
     title.classList.add('todosTitle');
     todos.appendChild(title);
     projectView.appendChild(todos);
