@@ -75,12 +75,6 @@ body {
     border-radius: 2px;
 }
 
-.contentDivider {
-    margin: 8px;
-    width: 400px;
-    align-self: center;
-}
-
 .content {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
@@ -89,6 +83,12 @@ body {
     overflow: scroll;
     display: flex;
     flex-direction: column;
+}
+
+.contentDivider {
+    margin: 8px;
+    width: 400px;
+    align-self: center;
 }
 
 .projectTab.no1 {
@@ -127,6 +127,9 @@ body {
     transition: background 0.35s ease;
     cursor: pointer;
     padding: 4px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
 }
 
 .viewButton:hover {
@@ -353,4 +356,10 @@ body {
 
 .todopriority.low, .projectpriority.low {
     color: green;
+}
+
+.iconColor {
+    filter: invert(80%) sepia(88%) saturate(10%) hue-rotate(191deg) brightness(114%) contrast(65%);
+    height: 24px;
+    width: 24px;
 }

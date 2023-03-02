@@ -24,8 +24,33 @@ function renderViewButtons(views) {
         button.classList.add("sidebarItem");
         button.classList.add('viewButton');
         button.setAttribute('id', viewName);
-        button.textContent = viewName;
+        let buttonTitle = document.createElement('div');
+        buttonTitle.textContent = viewName;
+        buttonTitle.classList.add('viewButtonTitle');
+        button.appendChild(buttonTitle);
         sidebar.appendChild(button);
+        if (viewName === 'GENERAL') {
+            let general = document.getElementById('GENERAL');
+            let icon = document.createElement('img');
+            icon.src = 'globe.real.svg';
+            icon.classList.add('generalIcon');
+            icon.classList.add('iconColor');
+            general.prepend(icon);
+        } else if (viewName === 'TODAY') {
+            let today = document.getElementById('TODAY')
+            let icon = document.createElement('img');
+            icon.src = 'today.svg';
+            icon.classList.add('todayIcon');
+            icon.classList.add('iconColor');
+            today.prepend(icon)
+        } else if (viewName === 'UPCOMING') {
+            let upcoming = document.getElementById("UPCOMING")
+            let icon = document.createElement('img');
+            icon.src = 'next-week.svg';
+            icon.classList.add('upcomingIcon');
+            icon.classList.add('iconColor');
+            upcoming.prepend(icon);
+        }
         button.addEventListener('click', () => {
             setView(viewName);
         })
